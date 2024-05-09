@@ -1,0 +1,26 @@
+.css-1u0lry5-MuiChartsLegend-root{
+  display: none !important;
+}
+
+.css-10vg0a6-MuiResponsiveChart-container{
+  width: 100% !important;
+}
+
+text tspan:first-child{
+  color: black !important;
+  font-weight: 700;
+  font-family: "Poppins";
+  padding-bottom: 10px !important;
+}
+
+text tspan:last-child{
+  color: #868686 !important;
+  font-weight: 400;
+  font-family: "Poppins";
+  font-size: 16px;
+  padding-top: 20px !important;
+}
+
+.css-b9rdri-MuiGauge-referenceArc{
+  fill:#696CFF !important;
+}
