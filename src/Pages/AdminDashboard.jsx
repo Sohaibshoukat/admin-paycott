@@ -7,6 +7,11 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoIosLogOut } from 'react-icons/io';
 import { IoNotificationsOutline } from 'react-icons/io5';
 import { FaChevronDown } from 'react-icons/fa';
+import Transaction from './Views/Transaction';
+import User from './Views/User';
+import UserTransactions from './Views/UserTransactions';
+import UserProfile from './Views/UserProfile';
+import UserChatHistory from './Views/UserChatHistory';
 
 const AdminDashboard = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(true);
@@ -53,23 +58,23 @@ const AdminDashboard = () => {
         <>
             <div className='flex flex-row min-h-[100vh] max-h-[100vh] overflow-hidden bg-light'>
                 <div
-                    className={`lg:basis-[30%] xl:basis-[15%] border-r-2 border-light z-50 absolute lg:relative w-[80%] md:w-[55%] h-[100%] ${isMenuOpen && 'hidden'} lg:block lg:w-auto bg-white`}
+                    className={`xl:basis-[15%] border-r-2 border-light z-50 absolute xl:relative w-[80%] md:w-[55%] h-[100%] ${isMenuOpen && 'hidden'} xl:block xl:w-auto bg-white`}
                     style={{ overflow: "unset" }}
                 >
                     <Nav isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} toggleMenu={toggleMenu} />
                 </div>
-                <div className="basis-[100%] max-h-[100vh] lg:basis-[68%] xl:basis-[85%] w-[100%] relative">
+                <div className="basis-[100%] max-h-[100vh] xl:basis-[85%] w-[100%] relative">
                     <div className='flex flex-row items-center justify-between gap-0 md:gap-20 h-auto shadow-xl py-2 md:py-4 bg-white px-4 md:px-10 '>
                         <button
                             type="button"
-                            className={`nline-flex p-2 text-2xl md:text-3xl lg:hidden rounded-md bg-transparent hover:bg-gray-100 focus:outline-none`}
+                            className={`nline-flex p-2 text-2xl md:text-3xl xl:hidden rounded-md bg-transparent hover:bg-gray-100 focus:outline-none`}
                             onClick={toggleMenu}
                         >
                             <GiHamburgerMenu />
                         </button>
                         <h2 className='text-lg md:text-2xl font-pop font-bold'>Dashboard</h2>
-                        <IoIosLogOut className='text-3xl md:text-3xl lg:hidden' onClick={handleLogout} />
-                        <div className="lg:flex flex-row gap-3 items-center hidden">
+                        <IoIosLogOut className='text-3xl md:text-3xl xl:hidden' onClick={handleLogout} />
+                        <div className="xl:flex flex-row gap-3 items-center hidden">
                             <div className="bg-gray-100 lg:block hidden font-semibold rounded-full p-2 text-primarygreen font-pop text-lg">
                                 en
                             </div>
@@ -81,10 +86,10 @@ const AdminDashboard = () => {
                                 <h2 className='font-pop text-base md:text-lg font-semibold'>Liam Ridley</h2>
                                 <FaChevronDown className='text-lg' />
                                 {Profile && <div className="flex rounded-xl z-[999999999] right-0 w-[100%] flex-col gap-2 bg-white absolute bottom-[-250%] shadow-2xl  font-pop text-lg font-medium py-2 px-4">
-                                    <Link to={"/user-dashboard/profile/"}>
+                                    <Link to={"/admin-dashboard/profile/"}>
                                         <h3>Profile</h3>
                                     </Link>
-                                    <Link to={"/user-dashboard/profile/setting"}>
+                                    <Link to={"/admin-dashboard/profile/setting"}>
                                         <h3>Setting</h3>
                                     </Link>
                                     <Link to={"/"}>
@@ -102,6 +107,26 @@ const AdminDashboard = () => {
                             <Route
                                 path="/"
                                 element={<Home />}>
+                            </Route>
+                            <Route
+                                path="/transactions"
+                                element={<Transaction />}>
+                            </Route>
+                            <Route
+                                path="/users"
+                                element={<User />}>
+                            </Route>
+                            <Route
+                                path="/user/transaction"
+                                element={<UserTransactions />}>
+                            </Route>
+                            <Route
+                                path="/user/Profile"
+                                element={<UserProfile />}>
+                            </Route>
+                            <Route
+                                path="/user/chat-history"
+                                element={<UserChatHistory />}>
                             </Route>
                         </Routes>
                         </div>

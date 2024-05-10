@@ -39,3 +39,20 @@ code {
 [type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{
   --tw-ring-shadow:none !important;
 }
+
+::-webkit-scrollbar {
+  width: 0px;
+  padding: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: gray;
+  /* border-radius: 6px; */
+  width: 0px;
+  padding: 1px;
+  height: 40px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(212, 212, 212);
+}
