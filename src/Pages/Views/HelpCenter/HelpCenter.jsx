@@ -3,24 +3,13 @@ import { FaSearch } from 'react-icons/fa'
 import { TiThMenu } from 'react-icons/ti'
 import { useNavigate } from 'react-router-dom'
 
-const UserChatHistory = () => {
+const HelpCenter = () => {
   const navigate = useNavigate()
   return (
     <div className='min-h-[inherit] overflow-hidden'>
-      <div className="bg-white font-pop w-full px-2 md:px-6 py-4">
-        <div className="flex flex-row md:flex-row justify-between md:items-center">
-          <div className="flex flex-row gap-2 items-center">
-            <img src="../../assets/Prop/avatar.png" alt="" className='w-12 h-12' />
-            <div className="flex flex-col">
-              <h2 className='text-sm md:text-lg font-semibold'>Cameron Williamson</h2>
-              <p className='text-xs md:text-base text-gray-400'>Last connect 8 hours ago</p>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className="flex flex-row min-h-[inherit]">
         <div className={`lg:basis-[30%] w-[100%] h-[100vh] lg:h-auto bg-white relative flex flex-col gap-6 py-4 px-6 font-pop `}>
-          <div className="flex gap-3 items-center bg-gray-200 rounded-full py-1 px-4">
+          <div className="flex gap-3 items-center bg-gray-200 rounded-full py-2 px-4">
             <FaSearch className='text-gray-400 text-lg md:text-2xl' />
             <input
               type="text"
@@ -75,7 +64,7 @@ const UserChatHistory = () => {
           <div className="flex lg:hidden flex-col gap-2">
             <div
               className="bg-white border-2 border-[#E9E9E9] py-2 px-4 rounded-2xl"
-              onClick={() => { navigate("/admin-dashboard/user/chat-detail") }}
+              onClick={() => { navigate("/admin-dashboard/help-center/chat-detail") }}
             >
               <div className="flex flex-row justify-between items-center">
                 <div className="flex flex-row gap-2">
@@ -176,4 +165,4 @@ const UserChatHistory = () => {
   )
 }
 
-export default UserChatHistory
+export default HelpCenter

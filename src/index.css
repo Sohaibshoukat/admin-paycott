@@ -56,3 +56,24 @@ code {
 ::-webkit-scrollbar-track {
   background-color: rgb(212, 212, 212);
 }
+
+.css-13cymwt-control{
+  border: none !important;
+}
+
+.css-t3ipsp-control{
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.css-1p3m7a8-multiValue{
+  background-color: #63D577 !important;
+}
+
+.css-1y7rh0y-MultiValueGeneric2{
+  color: white !important;
+}
+
+.css-tj5bde-Svg {
+  color: white !important;
+}

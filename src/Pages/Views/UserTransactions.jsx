@@ -118,7 +118,7 @@ const UserTransactions = () => {
     ]
 
     return (
-        <div>
+        <div className="w-[95%] m-auto  pt-10 pb-14">
             <div className="flex gap-4 items-center mb-6">
                 <img src="../../assets/Prop/avatar.png" alt="" className='w-20 h-20 rounded-full' />
                 <div className="flex font-pop flex-col gap-1">

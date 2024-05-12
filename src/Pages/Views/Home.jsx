@@ -9,6 +9,7 @@ const Home = () => {
 
 
     return (
+        <div className="w-[95%] m-auto  pt-10 pb-14">
         <div className="flex flex-col gap-6">
             <div className="flex flex-col xl:flex-row gap-4">
                 <TransactionChart />
@@ -18,6 +19,7 @@ const Home = () => {
                 <UserRegister/>
                 <OrderProcessing/>
             </div>
+        </div>
         </div>
     )
 }

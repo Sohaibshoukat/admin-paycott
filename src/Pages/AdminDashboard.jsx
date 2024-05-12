@@ -12,6 +12,18 @@ import User from './Views/User';
 import UserTransactions from './Views/UserTransactions';
 import UserProfile from './Views/UserProfile';
 import UserChatHistory from './Views/UserChatHistory';
+import ChatDetail from './Views/ChatDetail';
+import Main from './Views/Verification/Main';
+import Ratings from './Views/Ratings';
+import PaymentSetting from './Views/PaymentSetting';
+import GenralSetting from './Views/GenralSetting';
+import MainTicket from './Views/Ticket/Main';
+import HelpCenter from './Views/HelpCenter/HelpCenter';
+import HelpMain from './Views/HelpCenter/Main';
+import MainMarket from './Views/Marktplace/MainMarket';
+import Media from './Views/Media';
+import Logs from './Views/Logs';
+import MainUser from './Views/AdminUsers/MainUser';
 
 const AdminDashboard = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(true);
@@ -101,12 +113,19 @@ const AdminDashboard = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='max-h-[90vh] overflow-y-auto'>
-                        <div className="w-[95%] m-auto  pt-10 pb-14">
+                    <div className='max-h-[90vh] min-h-[90vh] overflow-y-auto'>
                         <Routes>
                             <Route
                                 path="/"
                                 element={<Home />}>
+                            </Route>
+                            <Route
+                                path="/verification/*"
+                                element={<Main />}>
+                            </Route>
+                            <Route
+                                path="/tickets/*"
+                                element={<MainTicket />}>
                             </Route>
                             <Route
                                 path="/transactions"
@@ -115,6 +134,10 @@ const AdminDashboard = () => {
                             <Route
                                 path="/users"
                                 element={<User />}>
+                            </Route>
+                            <Route
+                                path="/admin-roles/*"
+                                element={<MainUser />}>
                             </Route>
                             <Route
                                 path="/user/transaction"
@@ -128,8 +151,39 @@ const AdminDashboard = () => {
                                 path="/user/chat-history"
                                 element={<UserChatHistory />}>
                             </Route>
+                            <Route
+                                path="/user/chat-detail"
+                                element={<ChatDetail />}>
+                            </Route>
+                            <Route
+                                path="/rating-feedback"
+                                element={<Ratings />}>
+                            </Route>
+                            <Route
+                                path="/logs"
+                                element={<Logs />}>
+                            </Route>
+                            <Route
+                                path="/payment-setting"
+                                element={<PaymentSetting />}>
+                            </Route>
+                            <Route
+                                path="/genral-setting"
+                                element={<GenralSetting />}>
+                            </Route>
+                            <Route
+                                path="/media"
+                                element={<Media />}>
+                            </Route>
+                            <Route
+                                path="/help-center/*"
+                                element={<HelpMain />}>
+                            </Route>
+                            <Route
+                                path="/marketplace/*"
+                                element={<MainMarket />}>
+                            </Route>
                         </Routes>
-                        </div>
                     </div>
                 </div>
             </div>

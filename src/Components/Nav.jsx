@@ -17,7 +17,7 @@ const Nav = ({ isMenuOpen, setIsMenuOpen, toggleMenu }) => {
     const navigate = useNavigate();
 
     const [Users, setUsers] = useState(false)
-    const [Logs, setLogs] = useState(false)
+    const [Marketplace, setMarketplace] = useState(false)
 
     const tabs = [
         {
@@ -28,7 +28,7 @@ const Nav = ({ isMenuOpen, setIsMenuOpen, toggleMenu }) => {
         {
             name: 'Verification Center',
             Icon: HiOutlineClipboardDocumentList,
-            link: '/admin-dashboard/assign-request',
+            link: '/admin-dashboard/verification/',
         },
         {
             name: 'Advertising Center',
@@ -43,7 +43,7 @@ const Nav = ({ isMenuOpen, setIsMenuOpen, toggleMenu }) => {
         {
             name: 'Tickets',
             Icon: FiTag,
-            link: '/admin-dashboard/user-request',
+            link: '/admin-dashboard/tickets/',
         },
         {
             name: 'Users',
@@ -56,54 +56,64 @@ const Nav = ({ isMenuOpen, setIsMenuOpen, toggleMenu }) => {
                     to: "/admin-dashboard/users/"
                 },
                 {
-                    link: "Blocklist",
+                    link: "Admin Roles",
                     icon: FaProductHunt,
-                    to: "/admin-dashboard/marketplace/"
+                    to: "/admin-dashboard/admin-roles/"
                 },
             ]
         },
         {
             name: 'Log',
             Icon: TfiMenuAlt,
+            link: "/admin-dashboard/logs/"
+        },
+        {
+            name: "Transactions",
+            Icon: MdDesignServices,
+            link: "/admin-dashboard/transactions"
+        },
+        {
+            name: "MarketPlace",
+            Icon: FaProductHunt,
             type: "Main",
             SubLink: [
                 {
-                    link: "Transactions",
+                    link: "Overview",
                     icon: MdDesignServices,
-                    to: "/admin-dashboard/transactions"
-                },
-                {
-                    link: "MarketPlace",
-                    icon: FaProductHunt,
                     to: "/admin-dashboard/marketplace/"
                 },
                 {
-                    link: "Payment Settings",
-                    icon: FaProductHunt,
-                    to: "/admin-dashboard/marketplace/"
-                },
-                {
-                    link: "Media",
-                    icon: FaProductHunt,
-                    to: "/admin-dashboard/marketplace/"
-                },
-                {
-                    link: "Rating & Feedback",
-                    icon: FaProductHunt,
-                    to: "/admin-dashboard/marketplace/"
-                },
-                {
-                    link: "Help Center",
-                    icon: FaProductHunt,
-                    to: "/admin-dashboard/marketplace/"
-                },
-                {
-                    link: "General Settings",
-                    icon: FaProductHunt,
-                    to: "/admin-dashboard/marketplace/"
-                },
+                    link: "Adds",
+                    icon: MdDesignServices,
+                    to: "/admin-dashboard/marketplace/adds"
+                }
             ]
-        }
+        },
+        {
+            name: "Payment Settings",
+            Icon: FaProductHunt,
+            link: "/admin-dashboard/payment-setting"
+        },
+        {
+            name: "Media",
+            Icon: FaProductHunt,
+            link: "/admin-dashboard/media/"
+        },
+        {
+            name: "Rating & Feedback",
+            Icon: FaProductHunt,
+            link: "/admin-dashboard/rating-feedback"
+        },
+        {
+            name: "Help Center",
+            Icon: FaProductHunt,
+            link: "/admin-dashboard/help-center/"
+        },
+        {
+            name: "General Settings",
+            Icon: FaProductHunt,
+            link: "/admin-dashboard/genral-setting"
+        },
     ];
 
     const handleLogout = () => {
@@ -127,7 +137,7 @@ const Nav = ({ isMenuOpen, setIsMenuOpen, toggleMenu }) => {
             <div className="flex basis-[5%] py-2 h-[10%] items-center justify-center pr-2  bg-white">
                 <h1 className="ml-2 oxygen-bold text-3xl animate__animated animate__backInLeft animate__slow">paycott.</h1>
             </div>
-            <ul className="pb-4 overflow-y-auto max-h-[100%]  pt-6 font-pop">
+            <ul className="pb-14 overflow-y-auto max-h-[100%]  pt-6 font-pop">
                 {tabs.map((tab, index) => (
                     <>
                         {tab?.type == "Main" ?
@@ -138,7 +148,7 @@ const Nav = ({ isMenuOpen, setIsMenuOpen, toggleMenu }) => {
                                         if (tab.name == "Users") {
                                             setUsers(!Users)
                                         } else {
-                                            setLogs(!Logs)
+                                            setMarketplace(!Marketplace)
                                         }
                                     }}
                                 >
@@ -159,7 +169,7 @@ const Nav = ({ isMenuOpen, setIsMenuOpen, toggleMenu }) => {
                                         </div>}
                                 </> :
                                     <>
-                                        {Logs &&
+                                        {Marketplace &&
                                             <div className='py-1 flex flex-col gap-1'>
                                                 {tab?.SubLink?.map((item2, index2) => (
                                                     <Link to={item2.to} key={index2}>
@@ -173,11 +183,11 @@ const Nav = ({ isMenuOpen, setIsMenuOpen, toggleMenu }) => {
                                     </>
                                 }
                             </div>
-                            : <Link key={index} to={tab.link}> {/* Using Link component */}
+                            : <Link key={index} to={tab?.link}>
                                 <li
                                     className={`
                                 px-4 md:px-6 py-4 cursor-pointer font-medium border-l-4 text-lightGrey text-base 
-                                ${location.pathname === tab.link ? 'border-primarygreen bg-primarygreen/20 text-primarygreen' : 'border-white'} 
+                                ${location.pathname === tab?.link ? 'border-primarygreen bg-primarygreen/20 text-primarygreen' : 'border-white'} 
                                 hover:bg-primarygreen/20 hover:border-primarygreen hover:text-primarygreen ease-in-out duration-300`
                                     }
                                 >
