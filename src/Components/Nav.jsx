@@ -137,13 +137,13 @@ const Nav = ({ isMenuOpen, setIsMenuOpen, toggleMenu }) => {
             <div className="flex basis-[5%] py-2 h-[10%] items-center justify-center pr-2  bg-white">
                 <h1 className="ml-2 oxygen-bold text-3xl animate__animated animate__backInLeft animate__slow">paycott.</h1>
             </div>
-            <ul className="pb-14 overflow-y-auto max-h-[100%]  pt-6 font-pop">
+            <ul className="pb-14 overflow-y-auto max-h-[90vh]  pt-6 font-pop">
                 {tabs.map((tab, index) => (
                     <>
                         {tab?.type == "Main" ?
                             <div>
                                 <div
-                                    className={`flex flex-row items-center cursor-pointer gap-2 px-2 md:px-8 py-4 text-gray-400 ${location.pathname === tab.link && 'bg-primarygreen/20 text-primarygreen border-l-4 border-primarygreen'}`}
+                                    className={`flex flex-row items-center cursor-pointer gap-2 px-4 md:px-6 py-4 border-l-2 text-gray-400 ${location.pathname === tab.link ? 'bg-primarygreen/20 text-primarygreen  border-primarygreen':"border-white"}`}
                                     onClick={() => {
                                         if (tab.name == "Users") {
                                             setUsers(!Users)
