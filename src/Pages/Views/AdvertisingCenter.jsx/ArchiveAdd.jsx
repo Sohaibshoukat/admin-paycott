@@ -1,16 +1,12 @@
-import React, { useState } from 'react'
-import { FaSearch } from 'react-icons/fa'
+import React from 'react'
 import { ServiceListData } from '../../../assets/Data/SubCategory'
-import { HiDotsVertical } from 'react-icons/hi'
 
-const Adds = () => {
-
-    const [ActionModel, setActionModel] = useState(false)
+const ArchiveAdd = () => {
 
     return (
-        <div className='w-[95%] m-auto py-10'>
+        <div>
             <div className="flex flex-col gap-4 lg:flex-row justify-between font-pop lg:items-center">
-                <h3 className='text-gray-400 text-sm md:text-lg font-medium'>Total 12 Offers</h3>
+                <h3 className='text-gray-400 text-sm md:text-lg font-medium'>Total 12 Archive Ad's</h3>
                 <div className="flex gap-2 md:gap-6 items-center">
                     <select
                         name=""
@@ -33,10 +29,9 @@ const Adds = () => {
                         active:border-none active:outline-none text-sm md:text-lg font-normal
                         `}
                     >
-                        <option value="">Ad's Status</option>
-                        <option value="">In Review Ad's</option>
-                        <option value="">Active Ad's</option>
-                        <option value="">Archive Ad's</option>
+                        <option value="">Ad's Type</option>
+                        <option value="">Profile Ad's</option>
+                        <option value="">Gig Ad's</option>
                     </select>
                 </div>
             </div>
@@ -45,6 +40,7 @@ const Adds = () => {
                 {ServiceListData?.map((item, index) => (
                     <div
                         className="bg-white rounded-2xl flex flex-col gap-4 font-pop border-2 border-light py-2 px-4"
+                        key={index}
                     >
                         <div className="flex flex-row justify-between">
                             <div className="flex gap-2">
@@ -57,25 +53,6 @@ const Adds = () => {
                                         <h4 className='text-lightGrey'>Level {item.level}</h4>
                                     </div>
                                     <h3 className='text-lg font-semibold'>{item.Name}</h3>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <div
-                                    className="relative"
-                                    onClick={() => {
-                                        if (index == ActionModel) {
-                                            setActionModel(null)
-                                        } else {
-                                            setActionModel(index)
-                                        }
-                                    }}
-                                >
-                                    <HiDotsVertical className='text-2xl text-black' />
-                                    {ActionModel == index && 
-                                    <div className="bg-white rounded-lg absolute bottom-[-300%] right-0 py-2 px-6 font-pop text-lg font-medium shadow-xl">
-                                        <h2>Accept</h2>
-                                        <h2>Decline</h2>
-                                    </div>}
                                 </div>
                             </div>
                         </div>
@@ -106,4 +83,4 @@ const Adds = () => {
     )
 }
 
-export default Adds
+export default ArchiveAdd

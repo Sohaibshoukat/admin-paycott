@@ -1,6 +1,7 @@
 import React from 'react'
 import RatingCard from '../../Components/Dashboard/RatingCard'
 import { Rating } from '@mui/material'
+import { MdEdit } from 'react-icons/md'
 
 const Ratings = () => {
   return (
@@ -56,7 +57,10 @@ const Ratings = () => {
 
               <div className="border-2 border-light py-4 px-4 rounded-2xl">
                 <div className="flex flex-col gap-2 font-pop">
-                  <h5 className='text-lightGrey'>Rating</h5>
+                  <div className="flex justify-between">
+                    <h5 className='text-lightGrey'>Rating</h5>
+                    <MdEdit className='text-primarygreen text-lg' />
+                  </div>
                   <div className='ml-4'>
                     <div className="flex gap-2 items-center">
                       <h2 className='font-medium w-max'>5.0</h2>
@@ -69,7 +73,10 @@ const Ratings = () => {
 
               <div className="border-2 border-light py-4 px-4 rounded-2xl">
                 <div className="flex flex-col gap-2 font-pop">
-                  <h5 className='text-lightGrey'>FeedBack</h5>
+                <div className="flex justify-between">
+                <h5 className='text-lightGrey'>FeedBack</h5>
+                    <MdEdit className='text-primarygreen text-lg' />
+                  </div>
                   <div className='ml-4'>
                     <p className=''>Fast, Good Communication, Brilliant Design!</p>
                   </div>

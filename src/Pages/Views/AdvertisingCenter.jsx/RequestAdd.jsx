@@ -1,16 +1,14 @@
 import React, { useState } from 'react'
-import { FaSearch } from 'react-icons/fa'
 import { ServiceListData } from '../../../assets/Data/SubCategory'
 import { HiDotsVertical } from 'react-icons/hi'
 
-const Adds = () => {
-
-    const [ActionModel, setActionModel] = useState(false)
+const RequestAdd = () => {
+    const [ActionModel, setActionModel] = useState(null)
 
     return (
-        <div className='w-[95%] m-auto py-10'>
+        <div>
             <div className="flex flex-col gap-4 lg:flex-row justify-between font-pop lg:items-center">
-                <h3 className='text-gray-400 text-sm md:text-lg font-medium'>Total 12 Offers</h3>
+                <h3 className='text-gray-400 text-sm md:text-lg font-medium'>Total 12 New Ad's Request</h3>
                 <div className="flex gap-2 md:gap-6 items-center">
                     <select
                         name=""
@@ -33,10 +31,9 @@ const Adds = () => {
                         active:border-none active:outline-none text-sm md:text-lg font-normal
                         `}
                     >
-                        <option value="">Ad's Status</option>
-                        <option value="">In Review Ad's</option>
-                        <option value="">Active Ad's</option>
-                        <option value="">Archive Ad's</option>
+                        <option value="">Ad's Type</option>
+                        <option value="">Profile Ad's</option>
+                        <option value="">Gig Ad's</option>
                     </select>
                 </div>
             </div>
@@ -106,4 +103,4 @@ const Adds = () => {
     )
 }
 
-export default Adds
+export default RequestAdd

@@ -1,8 +1,11 @@
 import { Pagination } from '@mui/material'
 import React from 'react'
 import { FaSearch } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 const UserTransactions = () => {
+
+    const navigate = useNavigate()
 
     const Data = [
         {
@@ -125,6 +128,12 @@ const UserTransactions = () => {
                     <h2 className='text-xl font-semibold'>Jane Cooper</h2>
                     <p className='text-lightGrey'>Germany</p>
                 </div>
+                <button
+                    className='bg-transparent font-pop w-max border-2 border-primarygreen py-2 px-4 rounded-full text-primarygreen hover:text-white hover:bg-primarygreen ease-in-out duration-300'
+                    onClick={() => { navigate("/admin-dashboard/user/Profile") }}
+                >
+                    See User Profile
+                </button>
             </div>
             <div>
                 <div className="flex flex-col gap-4 lg:flex-row justify-between font-pop lg:items-center">

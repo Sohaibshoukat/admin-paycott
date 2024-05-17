@@ -1,9 +1,13 @@
 import { Rating } from '@mui/material'
 import React from 'react'
+import { MdDelete } from 'react-icons/md'
 
 const RatingCard = () => {
     return (
         <div className='bg-white flex flex-col gap-4 rounded-2xl py-4 font-pop px-6'>
+            <div className="justify-end flex">
+                <MdDelete className='text-red-500 text-lg' />
+            </div>
             <div className="flex justify-between">
                 <div className="flex font-pop gap-2 w-max items-center">
                     <img src={'../../assets/Prop/avatar.png'} alt="" className='w-14 h-14 rounded-full' />

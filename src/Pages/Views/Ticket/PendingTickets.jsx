@@ -1,170 +1,137 @@
 import React from 'react'
 import { FaSearch } from 'react-icons/fa'
-import Pagination from '@mui/material/Pagination';
+import { useNavigate } from 'react-router-dom'
 
-const Transaction = () => {
+const PendingTickets = () => {
+    const navigate = useNavigate()
 
     const Data = [
         {
             ID: "100",
-            Method:"PayPal",
             "Sender": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Type": "Physical goods",
-            "Price": "183",
+            "Offer": "Physical goods",
+            "Status": "Pending",
             "Rciver": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
-            },
-            "Date": "10 Dec"
+            }
         },
         {
             ID: "100",
-            Method:"Credit Card",
             "Sender": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Type": "Physical goods",
-            "Price": "183",
+            "Offer": "Physical goods",
+            "Status": "Pending",
             "Rciver": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
-            },
-            "Date": "10 Dec"
+            }
         },
         {
             ID: "100",
-            Method:"PayPal",
             "Sender": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Type": "Physical goods",
-            "Price": "183",
+            "Offer": "Physical goods",
+            "Status": "Pending",
             "Rciver": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
-            },
-            "Date": "10 Dec"
+            }
         },
         {
             ID: "100",
-            Method:"Credit Card",
             "Sender": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Type": "Physical goods",
-            "Price": "183",
+            "Offer": "Physical goods",
+            "Status": "Pending",
             "Rciver": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
-            },
-            "Date": "10 Dec"
+            }
         },
         {
             ID: "100",
-            Method:"PayPal",
             "Sender": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Type": "Physical goods",
-            "Price": "183",
+            "Offer": "Physical goods",
+            "Status": "Pending",
             "Rciver": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
-            },
-            "Date": "10 Dec"
+            }
         },
         {
             ID: "100",
-            Method:"Credit Card",
             "Sender": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Type": "Physical goods",
-            "Price": "183",
+            "Offer": "Physical goods",
+            "Status": "Pending",
             "Rciver": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
-            },
-            "Date": "10 Dec"
+            }
         },
         {
             ID: "100",
-            Method:"PayPal",
             "Sender": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Type": "Physical goods",
-            "Price": "183",
+            "Offer": "Physical goods",
+            "Status": "Pending",
             "Rciver": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
-            },
-            "Date": "10 Dec"
+            }
         },
         {
             ID: "100",
-            Method:"Credit Card",
             "Sender": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Type": "Physical goods",
-            "Price": "183",
+            "Offer": "Physical goods",
+            "Status": "Pending",
             "Rciver": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
-            },
-            "Date": "10 Dec"
+            }
         },
         {
             ID: "100",
-            Method:"PayPal",
             "Sender": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Type": "Physical goods",
-            "Price": "183",
+            "Offer": "Physical goods",
+            "Status": "Pending",
             "Rciver": {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
-            },
-            "Date": "10 Dec"
+            }
         },
-        {
-            ID: "100",
-            Method:"Credit Card",
-            "Sender": {
-                "img": "../../assets/Prop/avatar.png",
-                "Name": "Kristin Watson"
-            },
-            "Type": "Physical goods",
-            "Price": "183",
-            "Rciver": {
-                "img": "../../assets/Prop/avatar.png",
-                "Name": "Kristin Watson"
-            },
-            "Date": "10 Dec"
-        }
     ]
 
     return (
         <div className="w-[95%] m-auto  pt-10 pb-14">
             <div className="flex flex-col gap-4 lg:flex-row justify-between font-pop lg:items-center">
                 <div className="flex gap-2 md:gap-6 items-center">
-                    <h3 className='text-gray-400 text-sm md:text-lg font-medium'>Total 1200 Transaction this month</h3>
-                    <Pagination count={3} page={10} variant="outlined" shape="rounded" />
+                    <h3 className='text-gray-400 text-sm md:text-lg font-medium'>Total 15 Pending Tickets</h3>
                 </div>
-                <div className="flex gap-3 items-center bg-gray-300 rounded-full py-1 px-4">
+                <div className="flex gap-3 items-center bg-gray-300 rounded-full py-2 px-4">
                     <FaSearch className='text-gray-400 text-lg md:text-2xl' />
                     <input
                         type="text"
@@ -177,12 +144,11 @@ const Transaction = () => {
                 <table className='w-full overflow-x-scroll font-pop border-spacing-y-4 border-separate'>
                     <thead>
                         <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">ID</th>
-                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Transaction By</th>
+                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left w-[30%] font-medium text-gray-500 uppercase">Seller</th>
                         <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Offer</th>
-                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Method</th>
-                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Amount</th>
-                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Transaction To</th>
-                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Date</th>
+                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Status</th>
+                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Buyer</th>
+                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Actions</th>
                     </thead>
                     <tbody>
                         {Data?.map((item, index) => (
@@ -192,8 +158,8 @@ const Transaction = () => {
                                         #{item.ID}
                                     </h2>
                                 </td>
-                                <td class="px-2 md:px-6 bg-white my-3 text-base md:text-lg font-semibold py-3 text-left w-max">
-                                    <div className="flex gap-2 items-center">
+                                <td class="px-2 md:px-6 bg-white my-3 text-base md:text-lg font-semibold py-3 text-left w-max min-w-[30%]">
+                                    <div className="flex w-max gap-2 items-center">
                                         <img src={item?.Sender?.img} alt="" className='w-8 h-8 rounded-full' />
                                         <h2 className='font-semibold'>
                                             {item?.Sender?.Name}
@@ -201,16 +167,22 @@ const Transaction = () => {
                                     </div>
                                 </td>
                                 <td class="px-2 md:px-6 bg-white my-3 py-1 md:py-3 font-normal text-left ">
-                                    <h2 className='w-max'>{item?.Type}</h2>
-                                </td>
-                                <td class="px-2 md:px-6 bg-white my-3 py-1 md:py-3 font-normal text-left ">
-                                    <h2 className='w-max'>{item?.Method}</h2>
+                                    <h2 className='w-max'>{item?.Offer}</h2>
                                 </td>
                                 <td class="px-2 md:px-6 bg-white my-3 py-1 md:py-3 text-left font-semibold ">
-                                    <h2 className='w-max'>${item?.Price}</h2>
+                                    <div
+                                        className={`
+                                            py-2 px-4 rounded-lg border-2 w-max font-medium
+                                            ${item.Status == "Pending" ? "bg-[#3992F2]/10 border-[#3992F2] text-[#3992F2]"
+                                                : item.Status == "Under review" ? "bg-[#F9B754]/10 border-[#F9B754] text-[#F9B754]"
+                                                    : "bg-[#EFFBF1] border-[#63D577] text-[#63D577]"}
+                                        `}
+                                    >
+                                        {item?.Status}
+                                    </div>
                                 </td>
                                 <td class="px-2 md:px-6 bg-white my-3 py-1 md:py-3 text-left ">
-                                    <div className="flex font-medium flex-row gap-2 items-center">
+                                    <div className="flex w-max font-medium flex-row gap-2 items-center">
                                         <img src={item.Rciver?.img} alt="" className='w-8 h-8 rounded-full' />
                                         <h2 className='font-semibold'>
                                             {item?.Rciver?.Name}
@@ -218,7 +190,20 @@ const Transaction = () => {
                                     </div>
                                 </td>
                                 <td class="px-2 md:px-6 rounded-r-2xl text-gray-400 bg-white my-3 py-1 md:py-3 text-left ">
-                                    <h2 className='w-max'>{item.Date}</h2>
+                                    <div className="flex gap-4 font-pop items-center">
+                                        <button
+                                            className='bg-transparent w-max border-2 border-primarygreen py-2 px-4 rounded-full text-primarygreen hover:text-white hover:bg-primarygreen ease-in-out duration-300'
+                                            onClick={()=>{navigate("/admin-dashboard/tickets/case-detail/seller-info")}}
+                                        >
+                                            Case Review
+                                        </button>
+                                        <button
+                                            className='bg-primarygreen border-2 border-primarygreen py-2 px-4 rounded-full text-white hover:text-primarygreen hover:bg-transparent ease-in-out duration-300'
+                                            onClick={()=>{navigate("/admin-dashboard/tickets/case-detail/communication")}}
+                                        >
+                                            Chat
+                                        </button>
+                                    </div>
                                 </td>
                             </tr>
                         ))}
@@ -229,4 +214,4 @@ const Transaction = () => {
     )
 }
 
-export default Transaction
+export default PendingTickets

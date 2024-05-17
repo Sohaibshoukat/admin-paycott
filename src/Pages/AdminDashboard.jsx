@@ -24,6 +24,8 @@ import MainMarket from './Views/Marktplace/MainMarket';
 import Media from './Views/Media';
 import Logs from './Views/Logs';
 import MainUser from './Views/AdminUsers/MainUser';
+import AdvertisingCenter from './Views/AdvertisingCenter.jsx/AdvertisingCenter';
+import MainBusiness from './Views/BusinessCenter/MainBusiness';
 
 const AdminDashboard = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(true);
@@ -122,6 +124,14 @@ const AdminDashboard = () => {
                             <Route
                                 path="/verification/*"
                                 element={<Main />}>
+                            </Route>
+                            <Route
+                                path="/add-center/*"
+                                element={<AdvertisingCenter />}>
+                            </Route>
+                            <Route
+                                path="/business-center/*"
+                                element={<MainBusiness />}>
                             </Route>
                             <Route
                                 path="/tickets/*"

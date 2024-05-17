@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
-import { ServiceListData } from '../../../assets/Data/SubCategory'
+import { AdsData, ServiceListData } from '../../../assets/Data/SubCategory'
 import { HiDotsVertical } from 'react-icons/hi'
 
-const Adds = () => {
+const ProductAdds = () => {
 
     const [ActionModel, setActionModel] = useState(false)
 
@@ -42,24 +42,28 @@ const Adds = () => {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-x-4 gap-y-6 my-6">
-                {ServiceListData?.map((item, index) => (
+                {AdsData?.map((item, index) => (
                     <div
-                        className="bg-white rounded-2xl flex flex-col gap-4 font-pop border-2 border-light py-2 px-4"
+                        className="bg-white font-pop h-fit rounded-2xl py-4 px-4 cursor-pointer"
+                        key={index}
                     >
-                        <div className="flex flex-row justify-between">
-                            <div className="flex gap-2">
-                                <div>
-                                    <img src={item.img} alt="" className='w-12 h-12 rounded-full' />
-                                </div>
-                                <div className="flex flex-col gap-0">
-                                    <div className="flex flex-row gap-1 items-center">
-                                        {item?.badge && <img src="../../Assets/Prop/badge.png" className='w-4 h-4' />}
-                                        <h4 className='text-lightGrey'>Level {item.level}</h4>
-                                    </div>
-                                    <h3 className='text-lg font-semibold'>{item.Name}</h3>
-                                </div>
+                        <div className="flex flex-col md:flex-row gap-4 md:gap-2 justify-between">
+                            <div className='w-full lg:w-auto h-40 md:h-auto'>
+                                <img src={item.img} alt="" className='rounded-2xl w-full object-cover h-full' />
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex  flex-col gap-4">
+                                <div className="flex font-pop flex-col gap-2">
+                                    <div className="flex gap-2 w-max items-center">
+                                        <img src={item.userimg} alt="" className='w-8 h-8 rounded-full' />
+                                        <h3 className='font-medium  w-max'>{item.Name}</h3>
+                                    </div>
+                                    <div className="bg-primarygreen/30 w-fit font-pop py-1 px-2 rounded-3xl h-fit font-medium text-lg">
+                                        ${item.Price}
+                                    </div>
+                                </div>
+                                <h2 className='text-xl font-semibold'>{item.Head}</h2>
+                            </div>
+                            <div className="flex gap-2">
                                 <div
                                     className="relative"
                                     onClick={() => {
@@ -71,32 +75,12 @@ const Adds = () => {
                                     }}
                                 >
                                     <HiDotsVertical className='text-2xl text-black' />
-                                    {ActionModel == index && 
-                                    <div className="bg-white rounded-lg absolute bottom-[-300%] right-0 py-2 px-6 font-pop text-lg font-medium shadow-xl">
-                                        <h2>Accept</h2>
-                                        <h2>Decline</h2>
-                                    </div>}
+                                    {ActionModel == index &&
+                                        <div className="bg-white rounded-lg absolute bottom-[-300%] right-0 py-2 px-6 font-pop text-lg font-medium shadow-xl">
+                                            <h2>Accept</h2>
+                                            <h2>Decline</h2>
+                                        </div>}
                                 </div>
-                            </div>
-                        </div>
-                        <div className="flex flex-row font-pop gap-1">
-                            {item.List.slice(0, 2).map((item2, index2) => (
-                                <div className='bg-[#EFFBF1] rounded-full py-1 px-2 text-sm' key={index2}>
-                                    {item2}
-                                </div>
-                            ))}
-                            {item?.List?.length > 2 && (
-                                <div className='bg-[#EFFBF1] rounded-full p-1 text-sm'>
-                                    +{item.List?.length - 2}
-                                </div>
-                            )}
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <h2 className='font-medium '>{item?.Des}</h2>
-                            <div className="flex w-full flex-row gap-1">
-                                {item.Sample.map((item2, index2) => (
-                                    <img src={item2} alt="" className='w-[33%]' key={index2} />
-                                ))}
                             </div>
                         </div>
                     </div>
@@ -106,4 +90,4 @@ const Adds = () => {
     )
 }
 
-export default Adds
+export default ProductAdds

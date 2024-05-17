@@ -3,7 +3,7 @@ import { FaSearch } from 'react-icons/fa'
 import { MdDelete, MdEdit } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
 
-const ProfileList = () => {
+const Pending = () => {
 
     const navigate = useNavigate()
 
@@ -14,7 +14,7 @@ const ProfileList = () => {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Verification": "Request",
+            "Verification": "Pending",
             "Date": "10 Dec"
         },
         {
@@ -23,7 +23,7 @@ const ProfileList = () => {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Verification": "Request",
+            "Verification": "Pending",
             "Date": "10 Dec"
         },
         {
@@ -32,7 +32,7 @@ const ProfileList = () => {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Verification": "Request",
+            "Verification": "Pending",
             "Date": "10 Dec"
         },
         {
@@ -41,52 +41,7 @@ const ProfileList = () => {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Verification": "Request",
-            "Date": "10 Dec"
-        },
-        {
-            "Email": "AlbertWatson.@gmail.com",
-            "User": {
-                "img": "../../assets/Prop/avatar.png",
-                "Name": "Kristin Watson"
-            },
-            "Verification": "Request",
-            "Date": "10 Dec"
-        },
-        {
-            "Email": "AlbertWatson.@gmail.com",
-            "User": {
-                "img": "../../assets/Prop/avatar.png",
-                "Name": "Kristin Watson"
-            },
-            "Verification": "Request",
-            "Date": "10 Dec"
-        },
-        {
-            "Email": "AlbertWatson.@gmail.com",
-            "User": {
-                "img": "../../assets/Prop/avatar.png",
-                "Name": "Kristin Watson"
-            },
-            "Verification": "Request",
-            "Date": "10 Dec"
-        },
-        {
-            "Email": "AlbertWatson.@gmail.com",
-            "User": {
-                "img": "../../assets/Prop/avatar.png",
-                "Name": "Kristin Watson"
-            },
-            "Verification": "Request",
-            "Date": "10 Dec"
-        },
-        {
-            "Email": "AlbertWatson.@gmail.com",
-            "User": {
-                "img": "../../assets/Prop/avatar.png",
-                "Name": "Kristin Watson"
-            },
-            "Verification": "Request",
+            "Verification": "Pending",
             "Date": "10 Dec"
         }
     ]
@@ -97,7 +52,6 @@ const ProfileList = () => {
             <div className="flex flex-col gap-4 lg:flex-row justify-between font-pop lg:items-center">
                 <div className="flex gap-2 md:gap-6 items-center">
                     <h3 className='text-gray-400 text-sm md:text-lg font-medium'>Total 1200 Users</h3>
-
                 </div>
                 <div className="flex gap-3 items-center bg-gray-300 rounded-full py-1 px-4">
                     <FaSearch className='text-gray-400 text-lg md:text-2xl' />
@@ -159,4 +113,4 @@ const ProfileList = () => {
     )
 }
 
-export default ProfileList
+export default Pending

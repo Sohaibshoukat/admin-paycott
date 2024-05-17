@@ -19,6 +19,8 @@ const Nav = ({ isMenuOpen, setIsMenuOpen, toggleMenu }) => {
     const [Users, setUsers] = useState(false)
     const [Marketplace, setMarketplace] = useState(false)
 
+    const [ActiveSubMenu, setActiveSubMenu] = useState(null)
+
     const tabs = [
         {
             name: 'Dashboard',
@@ -28,22 +30,85 @@ const Nav = ({ isMenuOpen, setIsMenuOpen, toggleMenu }) => {
         {
             name: 'Verification Center',
             Icon: HiOutlineClipboardDocumentList,
-            link: '/admin-dashboard/verification/',
+            type: "Main",
+            SubLink: [
+                {
+                    link: "Request",
+                    icon: MdDesignServices,
+                    to: '/admin-dashboard/verification/request'
+                },
+                {
+                    link: "Pending",
+                    icon: FaProductHunt,
+                    to: '/admin-dashboard/verification/pending'
+                },
+            ]
         },
         {
             name: 'Advertising Center',
             Icon: FiTag,
-            link: '/admin-dashboard/all-user',
+            type: "Main",
+            SubLink: [
+                {
+                    link: "Active",
+                    icon: MdDesignServices,
+                    to: '/admin-dashboard/add-center/active'
+                },
+                {
+                    link: "Request",
+                    icon: FaProductHunt,
+                    to: '/admin-dashboard/add-center/request'
+                },
+                {
+                    link: "Archive",
+                    icon: FaProductHunt,
+                    to: '/admin-dashboard/add-center/archive'
+                },
+            ]
         },
         {
             name: 'Business Center',
             Icon: IoChatbubbleEllipsesOutline,
-            link: '/admin-dashboard/approved-user',
+            type: "Main",
+            SubLink: [
+                {
+                    link: "Application",
+                    icon: MdDesignServices,
+                    to: '/admin-dashboard/business-center/application',
+                },
+                {
+                    link: "Active",
+                    icon: FaProductHunt,
+                    to: '/admin-dashboard/business-center/active'
+                },
+                {
+                    link: "Settings",
+                    icon: FaProductHunt,
+                    to: '/admin-dashboard/business-center/setting'
+                },
+            ]
         },
         {
             name: 'Tickets',
             Icon: FiTag,
-            link: '/admin-dashboard/tickets/',
+            type: "Main",
+            SubLink: [
+                {
+                    link: "New Ticket's",
+                    icon: MdDesignServices,
+                    to: '/admin-dashboard/tickets/new',
+                },
+                {
+                    link: "Pending Ticket's",
+                    icon: FaProductHunt,
+                    to: '/admin-dashboard/tickets/pending'
+                },
+                {
+                    link: "Archive Ticket's",
+                    icon: FaProductHunt,
+                    to: '/admin-dashboard/tickets/archive'
+                },
+            ]
         },
         {
             name: 'Users',
@@ -83,10 +148,15 @@ const Nav = ({ isMenuOpen, setIsMenuOpen, toggleMenu }) => {
                     to: "/admin-dashboard/marketplace/"
                 },
                 {
-                    link: "Adds",
+                    link: "Service Ad's",
                     icon: MdDesignServices,
-                    to: "/admin-dashboard/marketplace/adds"
-                }
+                    to: "/admin-dashboard/marketplace/service-ads"
+                },
+                {
+                    link: "Product Ad's",
+                    icon: MdDesignServices,
+                    to: "/admin-dashboard/marketplace/product-ads"
+                },
             ]
         },
         {
@@ -143,45 +213,34 @@ const Nav = ({ isMenuOpen, setIsMenuOpen, toggleMenu }) => {
                         {tab?.type == "Main" ?
                             <div>
                                 <div
-                                    className={`flex flex-row items-center cursor-pointer gap-2 px-4 md:px-6 py-4 border-l-2 text-gray-400 ${location.pathname === tab.link ? 'bg-primarygreen/20 text-primarygreen  border-primarygreen':"border-white"}`}
+                                    className={`flex flex-row items-center cursor-pointer gap-4 px-4 md:px-6 py-4 border-l-2 text-gray-400 ${location.pathname === tab.link ? 'bg-primarygreen/20 text-primarygreen  border-primarygreen' : "border-white"}`}
                                     onClick={() => {
-                                        if (tab.name == "Users") {
-                                            setUsers(!Users)
-                                        } else {
-                                            setMarketplace(!Marketplace)
+                                        if(tab.name==ActiveSubMenu){
+                                            setActiveSubMenu(null)
+                                        }else{
+                                            setActiveSubMenu(tab.name)
                                         }
                                     }}
                                 >
                                     <tab.Icon />
                                     <h2 className='font-pop text-lightGrey font-medium'>{tab.name}</h2>
                                 </div>
-                                {tab.name == "Users" ? <>
-                                    {Users &&
-                                        <div className='py-1 flex flex-col gap-1'>
-                                            {tab?.SubLink?.map((item2, index2) => (
-                                                <Link to={item2.to} key={index2}>
-                                                    <div className={`flex flex-row items-center gap-2 px-2 md:px-8 py-2 text-gray-400 ${location.pathname === tab.link && 'bg-primarygreen/20 text-primarygreen border-l-4 border-primarygreen'}`}>
-                                                        <item2.icon className='text-2xl opacity-0' />
-                                                        <h2 className='font-pop text-base'>{item2.link}</h2>
-                                                    </div>
-                                                </Link>
-                                            ))}
-                                        </div>}
-                                </> :
-                                    <>
-                                        {Marketplace &&
-                                            <div className='py-1 flex flex-col gap-1'>
-                                                {tab?.SubLink?.map((item2, index2) => (
-                                                    <Link to={item2.to} key={index2}>
-                                                        <div className={`flex flex-row items-center gap-2 px-2 md:px-8 py-2 text-gray-400 ${location.pathname === tab.link && 'bg-primarygreen/20 text-primarygreen border-l-4 border-primarygreen'}`}>
-                                                            <item2.icon className='text-2xl opacity-0' />
-                                                            <h2 className='font-pop text-base'>{item2.link}</h2>
-                                                        </div>
-                                                    </Link>
-                                                ))}
-                                            </div>}
-                                    </>
-                                }
+                                <div className={`py-1 flex flex-col gap-1 ${ActiveSubMenu == tab.name ? 'block' : 'hidden'}`}>
+                                    {tab?.SubLink?.map((item2, index2) => (
+                                        <Link to={item2.to} key={index2}>
+                                            <div 
+                                                className={`
+                                                    flex flex-row items-center gap-2 px-2  border-l-4 md:px-8 py-2 text-gray-400 
+                                                    ${location.pathname === item2?.to ? 'border-primarygreen bg-primarygreen/20 text-primarygreen' : 'border-white'} 
+                                                    hover:bg-primarygreen/20 hover:border-primarygreen hover:text-primarygreen ease-in-out duration-300
+                                                `}
+                                            >
+                                                <item2.icon className='text-2xl opacity-0' />
+                                                <h2 className='font-pop text-base'>{item2.link}</h2>
+                                            </div>
+                                        </Link>
+                                    ))}
+                                </div>
                             </div>
                             : <Link key={index} to={tab?.link}>
                                 <li
