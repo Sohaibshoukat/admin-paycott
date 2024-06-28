@@ -6,7 +6,7 @@ const RatingCard = () => {
     return (
         <div className='bg-white flex flex-col gap-4 rounded-2xl py-4 font-pop px-6'>
             <div className="justify-end flex">
-                <MdDelete className='text-red-500 text-lg' />
+                <MdDelete className='text-red-500 cursor-pointer text-lg' />
             </div>
             <div className="flex justify-between">
                 <div className="flex font-pop gap-2 w-max items-center">

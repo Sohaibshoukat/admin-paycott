@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom'; // Importing useLocation
 import { GrClose } from 'react-icons/gr';
 import { IoIosLogOut, IoMdPricetags } from 'react-icons/io';
@@ -11,180 +11,43 @@ import { HiOutlineClipboardDocumentList } from 'react-icons/hi2';
 import { FiTag, FiUser } from 'react-icons/fi';
 import { IoChatbubbleEllipsesOutline } from 'react-icons/io5';
 import { TfiMenuAlt } from 'react-icons/tfi';
+import { BaseURL } from '../assets/Data/BaseURL';
+import axios from 'axios';
+import AlertContext from '../Context/Alert/AlertContext';
 
 const Nav = ({ isMenuOpen, setIsMenuOpen, toggleMenu }) => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const [Users, setUsers] = useState(false)
-    const [Marketplace, setMarketplace] = useState(false)
-
     const [ActiveSubMenu, setActiveSubMenu] = useState(null)
 
-    const tabs = [
-        {
-            name: 'Dashboard',
-            Icon: RxDashboard,
-            link: '/admin-dashboard',
-        },
-        {
-            name: 'Verification Center',
-            Icon: HiOutlineClipboardDocumentList,
-            type: "Main",
-            SubLink: [
-                {
-                    link: "Request",
-                    icon: MdDesignServices,
-                    to: '/admin-dashboard/verification/request'
-                },
-                {
-                    link: "Pending",
-                    icon: FaProductHunt,
-                    to: '/admin-dashboard/verification/pending'
-                },
-            ]
-        },
-        {
-            name: 'Advertising Center',
-            Icon: FiTag,
-            type: "Main",
-            SubLink: [
-                {
-                    link: "Active",
-                    icon: MdDesignServices,
-                    to: '/admin-dashboard/add-center/active'
-                },
-                {
-                    link: "Request",
-                    icon: FaProductHunt,
-                    to: '/admin-dashboard/add-center/request'
-                },
-                {
-                    link: "Archive",
-                    icon: FaProductHunt,
-                    to: '/admin-dashboard/add-center/archive'
-                },
-            ]
-        },
-        {
-            name: 'Business Center',
-            Icon: IoChatbubbleEllipsesOutline,
-            type: "Main",
-            SubLink: [
-                {
-                    link: "Application",
-                    icon: MdDesignServices,
-                    to: '/admin-dashboard/business-center/application',
-                },
-                {
-                    link: "Active",
-                    icon: FaProductHunt,
-                    to: '/admin-dashboard/business-center/active'
-                },
-                {
-                    link: "Settings",
-                    icon: FaProductHunt,
-                    to: '/admin-dashboard/business-center/setting'
-                },
-            ]
-        },
-        {
-            name: 'Tickets',
-            Icon: FiTag,
-            type: "Main",
-            SubLink: [
-                {
-                    link: "New Ticket's",
-                    icon: MdDesignServices,
-                    to: '/admin-dashboard/tickets/new',
-                },
-                {
-                    link: "Pending Ticket's",
-                    icon: FaProductHunt,
-                    to: '/admin-dashboard/tickets/pending'
-                },
-                {
-                    link: "Archive Ticket's",
-                    icon: FaProductHunt,
-                    to: '/admin-dashboard/tickets/archive'
-                },
-            ]
-        },
-        {
-            name: 'Users',
-            Icon: FiUser,
-            type: "Main",
-            SubLink: [
-                {
-                    link: "Users",
-                    icon: MdDesignServices,
-                    to: "/admin-dashboard/users/"
-                },
-                {
-                    link: "Admin Roles",
-                    icon: FaProductHunt,
-                    to: "/admin-dashboard/admin-roles/"
-                },
-            ]
-        },
-        {
-            name: 'Log',
-            Icon: TfiMenuAlt,
-            link: "/admin-dashboard/logs/"
-        },
-        {
-            name: "Transactions",
-            Icon: MdDesignServices,
-            link: "/admin-dashboard/transactions"
-        },
-        {
-            name: "MarketPlace",
-            Icon: FaProductHunt,
-            type: "Main",
-            SubLink: [
-                {
-                    link: "Overview",
-                    icon: MdDesignServices,
-                    to: "/admin-dashboard/marketplace/"
-                },
-                {
-                    link: "Service Ad's",
-                    icon: MdDesignServices,
-                    to: "/admin-dashboard/marketplace/service-ads"
-                },
-                {
-                    link: "Product Ad's",
-                    icon: MdDesignServices,
-                    to: "/admin-dashboard/marketplace/product-ads"
-                },
-            ]
-        },
-        {
-            name: "Payment Settings",
-            Icon: FaProductHunt,
-            link: "/admin-dashboard/payment-setting"
-        },
-        {
-            name: "Media",
-            Icon: FaProductHunt,
-            link: "/admin-dashboard/media/"
-        },
-        {
-            name: "Rating & Feedback",
-            Icon: FaProductHunt,
-            link: "/admin-dashboard/rating-feedback"
-        },
-        {
-            name: "Help Center",
-            Icon: FaProductHunt,
-            link: "/admin-dashboard/help-center/"
-        },
-        {
-            name: "General Settings",
-            Icon: FaProductHunt,
-            link: "/admin-dashboard/genral-setting"
-        },
-    ];
+    const [TabsAllowed, setTabsAllowed] = useState([])
+
+    const AletContext = useContext(AlertContext);
+    const { showAlert } = AletContext;
+
+
+    const fetchRoles = async () => {
+        try {
+            const response = await fetch(`${BaseURL}/adminauth/fetchNavigation`, {
+                headers: {
+                    AdminODSToken: sessionStorage.getItem('token')
+                }
+            });
+            const data = await response.json()
+            const NewNavArray = data.admRole.Auths?.map((item) => {
+                return item?.Page
+            })
+            console.log(NewNavArray);
+            setTabsAllowed(NewNavArray);
+        } catch (error) {
+            console.error('Error fetching roles:', error);
+        }
+    };
+
+    useEffect(() => {
+        fetchRoles()
+    }, [])
 
     const handleLogout = () => {
         localStorage.removeItem("token");
@@ -208,27 +71,31 @@ const Nav = ({ isMenuOpen, setIsMenuOpen, toggleMenu }) => {
                 <h1 className="ml-2 oxygen-bold text-3xl animate__animated animate__backInLeft animate__slow">paycott.</h1>
             </div>
             <ul className="pb-14 overflow-y-auto max-h-[90vh]  pt-6 font-pop">
-                {tabs.map((tab, index) => (
+                {TabsAllowed?.map((tab, index) => (
                     <>
                         {tab?.type == "Main" ?
                             <div>
                                 <div
-                                    className={`flex flex-row items-center cursor-pointer gap-4 px-4 md:px-6 py-4 border-l-2 text-gray-400 ${location.pathname === tab.link ? 'bg-primarygreen/20 text-primarygreen  border-primarygreen' : "border-white"}`}
+                                    className={`
+                                        flex flex-row items-center cursor-pointer gap-4 px-4 md:px-6 py-4 border-l-4 border-transparent 
+                                        ${location.pathname === tab.link ? 'bg-primarygreen/20 text-primarygreen  border-primarygreen' : "text-gray-400  hover:bg-primarygreen/20 hover:border-primarygreen hover:text-primarygreen"}
+                                         ease-in-out duration-300
+                                    `}
                                     onClick={() => {
-                                        if(tab.name==ActiveSubMenu){
+                                        if (tab.name == ActiveSubMenu) {
                                             setActiveSubMenu(null)
-                                        }else{
-                                            setActiveSubMenu(tab.name)
+                                        } else {
+                                            setActiveSubMenu(tab?.name)
                                         }
                                     }}
                                 >
-                                    <tab.Icon />
-                                    <h2 className='font-pop text-lightGrey font-medium'>{tab.name}</h2>
+                                    {/* <tab.Icon /> */}
+                                    <h2 className='font-pop text-lightGrey font-medium'>{tab?.name}</h2>
                                 </div>
-                                <div className={`py-1 flex flex-col gap-1 ${ActiveSubMenu == tab.name ? 'block' : 'hidden'}`}>
+                                <div className={`py-1 flex flex-col gap-1 ${ActiveSubMenu == tab?.name ? 'block' : 'hidden'}`}>
                                     {tab?.SubLink?.map((item2, index2) => (
                                         <Link to={item2.to} key={index2}>
-                                            <div 
+                                            <div
                                                 className={`
                                                     flex flex-row items-center gap-2 px-2  border-l-4 md:px-8 py-2 text-gray-400 
                                                     ${location.pathname === item2?.to ? 'border-primarygreen bg-primarygreen/20 text-primarygreen' : 'border-white'} 
@@ -251,8 +118,8 @@ const Nav = ({ isMenuOpen, setIsMenuOpen, toggleMenu }) => {
                                     }
                                 >
                                     <div className="flex flex-row gap-4 items-center">
-                                        <tab.Icon />
-                                        {tab.name}
+                                        {/* <tab.Icon /> */}
+                                        {tab?.name}
                                     </div>
                                 </li>
                             </Link>}

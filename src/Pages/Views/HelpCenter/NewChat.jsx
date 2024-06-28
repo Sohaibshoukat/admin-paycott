@@ -2,121 +2,63 @@ import React from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
-const ResolvedTickets = () => {
+const NewChat = () => {
     const navigate = useNavigate()
 
     const Data = [
         {
             ID: "100",
-            "Sender": {
+            Sender: {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Assigned":"Inzamam Yousaf",
-            "Offer": "Physical goods",
-            "Status": "Resolved",
-            "Rciver": {
-                "img": "../../assets/Prop/avatar.png",
-                "Name": "Kristin Watson"
-            }
+            Status: "Pending",
+            Date: "10 Dec"
         },
         {
             ID: "100",
-            "Sender": {
+            Sender: {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Assigned":"Inzamam Yousaf",
-            "Offer": "Physical goods",
-            "Status": "Resolved",
-            "Rciver": {
-                "img": "../../assets/Prop/avatar.png",
-                "Name": "Kristin Watson"
-            }
+            Status: "Pending",
+            Date: "10 Dec"
         },
         {
             ID: "100",
-            "Sender": {
+            Sender: {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Assigned":"Inzamam Yousaf",
-            "Offer": "Physical goods",
-            "Status": "Resolved",
-            "Rciver": {
-                "img": "../../assets/Prop/avatar.png",
-                "Name": "Kristin Watson"
-            }
+            Status: "Pending",
+            Date: "10 Dec"
         },
         {
             ID: "100",
-            "Sender": {
+            Sender: {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Assigned":"Inzamam Yousaf",
-            "Offer": "Physical goods",
-            "Status": "Resolved",
-            "Rciver": {
-                "img": "../../assets/Prop/avatar.png",
-                "Name": "Kristin Watson"
-            }
+            Status: "Pending",
+            Date: "10 Dec"
         },
         {
             ID: "100",
-            "Sender": {
+            Sender: {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Assigned":"Inzamam Yousaf",
-            "Offer": "Physical goods",
-            "Status": "Resolved",
-            "Rciver": {
-                "img": "../../assets/Prop/avatar.png",
-                "Name": "Kristin Watson"
-            }
+            Status: "Pending",
+            Date: "10 Dec"
         },
         {
             ID: "100",
-            "Sender": {
+            Sender: {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
-            "Assigned":"Inzamam Yousaf",
-            "Offer": "Physical goods",
-            "Status": "Resolved",
-            "Rciver": {
-                "img": "../../assets/Prop/avatar.png",
-                "Name": "Kristin Watson"
-            }
-        },
-        {
-            ID: "100",
-            "Sender": {
-                "img": "../../assets/Prop/avatar.png",
-                "Name": "Kristin Watson"
-            },
-            "Assigned":"Inzamam Yousaf",
-            "Offer": "Physical goods",
-            "Status": "Resolved",
-            "Rciver": {
-                "img": "../../assets/Prop/avatar.png",
-                "Name": "Kristin Watson"
-            }
-        },
-        {
-            ID: "100",
-            "Sender": {
-                "img": "../../assets/Prop/avatar.png",
-                "Name": "Kristin Watson"
-            },
-            "Assigned":"Inzamam Yousaf",
-            "Offer": "Physical goods",
-            "Status": "Resolved",
-            "Rciver": {
-                "img": "../../assets/Prop/avatar.png",
-                "Name": "Kristin Watson"
-            }
+            Status: "Pending",
+            Date: "10 Dec"
         },
     ]
 
@@ -124,7 +66,7 @@ const ResolvedTickets = () => {
         <div className="w-[95%] m-auto  pt-10 pb-14">
             <div className="flex flex-col gap-4 lg:flex-row justify-between font-pop lg:items-center">
                 <div className="flex gap-2 md:gap-6 items-center">
-                    <h3 className='text-gray-400 text-sm md:text-lg font-medium'>Total 17 Resolved Tickets</h3>
+                    <h3 className='text-gray-400 text-sm md:text-lg font-medium'>Total 17 New Request</h3>
                 </div>
                 <div className="flex gap-3 items-center bg-gray-300 rounded-full py-2 px-4">
                     <FaSearch className='text-gray-400 text-lg md:text-2xl' />
@@ -139,11 +81,9 @@ const ResolvedTickets = () => {
                 <table className='w-full overflow-x-scroll font-pop border-spacing-y-4 border-separate'>
                     <thead>
                         <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">ID</th>
-                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Seller</th>
-                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Assigned to</th>
-                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Offer</th>
+                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Sender</th>
                         <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Status</th>
-                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Buyer</th>
+                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Date</th>
                         <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Actions</th>
                     </thead>
                     <tbody>
@@ -162,14 +102,6 @@ const ResolvedTickets = () => {
                                         </h2>
                                     </div>
                                 </td>
-                                <td class="px-2 md:px-6 font-pop text-sm md:text-base bg-white my-3 py-3 text-left ">
-                                    <h2 className='font-semibold w-max'>
-                                        {item.Assigned}
-                                    </h2>
-                                </td>
-                                <td class="px-2 md:px-6 bg-white my-3 py-1 md:py-3 font-normal text-left ">
-                                    <h2 className='w-max'>{item?.Offer}</h2>
-                                </td>
                                 <td class="px-2 md:px-6 bg-white my-3 py-1 md:py-3 text-left font-semibold ">
                                     <div
                                         className={`
@@ -182,21 +114,18 @@ const ResolvedTickets = () => {
                                         {item?.Status}
                                     </div>
                                 </td>
-                                <td class="px-2 md:px-6 bg-white my-3 py-1 md:py-3 text-left ">
-                                    <div className="flex w-max font-medium flex-row gap-2 items-center">
-                                        <img src={item.Rciver?.img} alt="" className='w-8 h-8 rounded-full' />
-                                        <h2 className='font-semibold'>
-                                            {item?.Rciver?.Name}
-                                        </h2>
-                                    </div>
+                                <td class="px-2 md:px-6 font-pop text-sm md:text-base bg-white my-3 py-3 text-left ">
+                                    <h2 className='font-semibold'>
+                                        {item.Date}
+                                    </h2>
                                 </td>
                                 <td class="px-2 md:px-6 rounded-r-2xl text-gray-400 bg-white my-3 py-1 md:py-3 text-left ">
                                     <div className="flex gap-4 font-pop items-center">
                                         <button
                                             className='bg-transparent w-max border-2 border-primarygreen py-2 px-4 rounded-full text-primarygreen hover:text-white hover:bg-primarygreen ease-in-out duration-300'
-                                            onClick={()=>{navigate("/admin-dashboard/tickets/case-detail/seller-info")}}
+                                            onClick={() => { navigate("/admin-dashboard/help-center/chat-detail") }}
                                         >
-                                            Case Review
+                                            Start Conversation
                                         </button>
                                     </div>
                                 </td>
@@ -209,4 +138,4 @@ const ResolvedTickets = () => {
     )
 }
 
-export default ResolvedTickets
+export default NewChat

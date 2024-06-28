@@ -3,6 +3,7 @@ import { ServiceListData } from '../../../assets/Data/SubCategory'
 import { HiDotsVertical } from 'react-icons/hi'
 
 const ActiveAdd = () => {
+    const [ActionModel, setActionModel] = useState(null)
 
     return (
         <div>
@@ -54,6 +55,25 @@ const ActiveAdd = () => {
                                         <h4 className='text-lightGrey'>Level {item.level}</h4>
                                     </div>
                                     <h3 className='text-lg font-semibold'>{item.Name}</h3>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <div
+                                    className="relative"
+                                    onClick={() => {
+                                        if (index == ActionModel) {
+                                            setActionModel(null)
+                                        } else {
+                                            setActionModel(index)
+                                        }
+                                    }}
+                                >
+                                    <HiDotsVertical className='text-2xl text-black' />
+                                    {ActionModel == index && 
+                                    <div className="bg-white rounded-lg w-max absolute top-[100%] right-0 py-2 px-6 font-pop text-lg font-medium shadow-xl">
+                                        <h2>Close Ad</h2>
+                                        <h2>Delete Ad</h2>
+                                    </div>}
                                 </div>
                             </div>
                         </div>

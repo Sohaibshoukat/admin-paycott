@@ -1,9 +1,116 @@
-import React, { useState } from 'react'
-import { ServiceListData } from '../../../assets/Data/SubCategory'
-import { HiDotsVertical } from 'react-icons/hi'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const RequestAdd = () => {
-    const [ActionModel, setActionModel] = useState(null)
+
+    const navigate = useNavigate()
+
+    const Data = [
+        {
+            "Email": "AlbertWatson.@gmail.com",
+            "User": {
+                "img": "../../assets/Prop/avatar.png",
+                "Name": "Kristin Watson"
+            },
+            ID:"4455674",
+            Marketplace:"Marketplace",
+            Category:"Vehicles->Mercedes Benz->E220 D",
+            Addid:"482734",
+            Status:"Waiting",
+            "Date": "10 Dec 2024"
+        },
+        {
+            "Email": "AlbertWatson.@gmail.com",
+            "User": {
+                "img": "../../assets/Prop/avatar.png",
+                "Name": "Kristin Watson"
+            },
+            ID:"4455674",
+            Marketplace:"Services",
+            Category:"Logo & Brand->Logo Design->3D Logo",
+            Addid:"482734",
+            Status:"Waiting",
+            "Date": "10 Dec 2024"
+        },
+        {
+            "Email": "AlbertWatson.@gmail.com",
+            "User": {
+                "img": "../../assets/Prop/avatar.png",
+                "Name": "Kristin Watson"
+            },
+            ID:"4455674",
+            Marketplace:"Marketplace",
+            Category:"Vehicles->Mercedes Benz->E220 D",
+            Addid:"482734",
+            Status:"Waiting",
+            "Date": "10 Dec 2024"
+        },
+        {
+            "Email": "AlbertWatson.@gmail.com",
+            "User": {
+                "img": "../../assets/Prop/avatar.png",
+                "Name": "Kristin Watson"
+            },
+            ID:"4455674",
+            Marketplace:"Services",
+            Category:"Logo & Brand->Logo Design->3D Logo",
+            Addid:"482734",
+            Status:"Waiting",
+            "Date": "10 Dec 2024"
+        },
+        {
+            "Email": "AlbertWatson.@gmail.com",
+            "User": {
+                "img": "../../assets/Prop/avatar.png",
+                "Name": "Kristin Watson"
+            },
+            ID:"4455674",
+            Marketplace:"Marketplace",
+            Category:"Vehicles->Mercedes Benz->E220 D",
+            Addid:"482734",
+            Status:"Waiting",
+            "Date": "10 Dec 2024"
+        },
+        {
+            "Email": "AlbertWatson.@gmail.com",
+            "User": {
+                "img": "../../assets/Prop/avatar.png",
+                "Name": "Kristin Watson"
+            },
+            ID:"4455674",
+            Marketplace:"Services",
+            Category:"Logo & Brand->Logo Design->3D Logo",
+            Addid:"482734",
+            Status:"Waiting",
+            "Date": "10 Dec 2024"
+        },
+        {
+            "Email": "AlbertWatson.@gmail.com",
+            "User": {
+                "img": "../../assets/Prop/avatar.png",
+                "Name": "Kristin Watson"
+            },
+            ID:"4455674",
+            Marketplace:"Marketplace",
+            Category:"Vehicles->Mercedes Benz->E220 D",
+            Addid:"482734",
+            Status:"Waiting",
+            "Date": "10 Dec 2024"
+        },
+        {
+            "Email": "AlbertWatson.@gmail.com",
+            "User": {
+                "img": "../../assets/Prop/avatar.png",
+                "Name": "Kristin Watson"
+            },
+            ID:"4455674",
+            Marketplace:"Services",
+            Category:"Logo & Brand->Logo Design->3D Logo",
+            Addid:"482734",
+            Status:"Waiting",
+            "Date": "10 Dec 2024"
+        },
+    ]
 
     return (
         <div>
@@ -38,66 +145,72 @@ const RequestAdd = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-x-4 gap-y-6 my-6">
-                {ServiceListData?.map((item, index) => (
-                    <div
-                        className="bg-white rounded-2xl flex flex-col gap-4 font-pop border-2 border-light py-2 px-4"
-                    >
-                        <div className="flex flex-row justify-between">
-                            <div className="flex gap-2">
-                                <div>
-                                    <img src={item.img} alt="" className='w-12 h-12 rounded-full' />
-                                </div>
-                                <div className="flex flex-col gap-0">
-                                    <div className="flex flex-row gap-1 items-center">
-                                        {item?.badge && <img src="../../Assets/Prop/badge.png" className='w-4 h-4' />}
-                                        <h4 className='text-lightGrey'>Level {item.level}</h4>
+            <div className='bg-transparent overflow-x-auto font-pop w-full my-2 md:my-6'>
+                <table className='w-full border-spacing-y-4 border-separate'>
+                    <thead>
+                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">USER</th>
+                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">USER-ID</th>
+                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">DATE</th>
+                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">MARKETPLACE</th>
+                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">CATEGORY</th>
+                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">AD-ID</th>
+                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">STATUS</th>
+                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">ACTION</th>
+                    </thead>
+                    <tbody>
+                        {Data?.map((item, index) => (
+                            <tr key={index} className='cursor-pointer'>
+                                <td class="px-2 rounded-l-2xl md:px-6 bg-white my-3 text-base md:text-lg font-semibold py-3 text-left w-max min-w-[30%]">
+                                    <div className="flex font-medium w-max flex-row gap-2 items-center">
+                                        <img src={item.User?.img} alt="" className='w-8 h-8 rounded-full' />
+                                        <h2 className='w-max'>{item.User?.Name}</h2>
                                     </div>
-                                    <h3 className='text-lg font-semibold'>{item.Name}</h3>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <div
-                                    className="relative"
-                                    onClick={() => {
-                                        if (index == ActionModel) {
-                                            setActionModel(null)
-                                        } else {
-                                            setActionModel(index)
-                                        }
-                                    }}
-                                >
-                                    <HiDotsVertical className='text-2xl text-black' />
-                                    {ActionModel == index && 
-                                    <div className="bg-white rounded-lg absolute bottom-[-300%] right-0 py-2 px-6 font-pop text-lg font-medium shadow-xl">
-                                        <h2>Accept</h2>
-                                        <h2>Decline</h2>
-                                    </div>}
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex flex-row font-pop gap-1">
-                            {item.List.slice(0, 2).map((item2, index2) => (
-                                <div className='bg-[#EFFBF1] rounded-full py-1 px-2 text-sm' key={index2}>
-                                    {item2}
-                                </div>
-                            ))}
-                            {item?.List?.length > 2 && (
-                                <div className='bg-[#EFFBF1] rounded-full p-1 text-sm'>
-                                    +{item.List?.length - 2}
-                                </div>
-                            )}
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <h2 className='font-medium '>{item?.Des}</h2>
-                            <div className="flex w-full flex-row gap-1">
-                                {item.Sample.map((item2, index2) => (
-                                    <img src={item2} alt="" className='w-[33%]' key={index2} />
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                ))}
+                                </td>
+                                <td class="px-2 md:px-6 bg-white my-3 py-1 md:py-3 font-normal text-left ">
+                                    <h2 className='w-max'>{item?.ID}</h2>
+                                </td>
+                                <td class="px-2 md:px-6 bg-white my-3 py-1 md:py-3 font-normal text-left ">
+                                    <h2 className='w-max'>{item?.Date}</h2>
+                                </td>
+                                <td class="px-2 md:px-6 bg-white my-3 py-1 md:py-3 font-normal text-left ">
+                                    <h2 className='w-max'>{item?.Marketplace}</h2>
+                                </td>
+                                <td class="px-2 md:px-6 bg-white my-3 py-1 md:py-3 font-normal text-left ">
+                                    <h2 className='w-max'>{item?.Category}</h2>
+                                </td>
+                                <td class="px-2 md:px-6 bg-white my-3 py-1 md:py-3 font-normal text-left ">
+                                    <h2 className='w-max'>{item?.Addid}</h2>
+                                </td>
+                                <td class="px-2 md:px-6 bg-white my-3 py-1 md:py-3 text-left font-semibold ">
+                                    <div
+                                        className={`
+                                            py-2 px-4 rounded-lg border-2 w-max font-medium
+                                            ${item.Verification == "Waiting" ? "bg-[#FCEBEC] border-[#DD3242] text-[#DD3242]"
+                                                : item.Verification == "Pending" ? "bg-[#F9B754]/30 border-[#F9B754] text-[#F9B754]"
+                                                    : "bg-[#EFFBF1] border-[#63D577] text-[#63D577]"}
+                                        `}
+                                    >
+                                        {item?.Status}
+                                    </div>
+                                </td>
+                                <td class="px-2 md:px-6 bg-white my-3 py-1 md:py-3 text-left rounded-r-2xl">
+                                    <button 
+                                        onClick={()=>{
+                                            if(item?.Marketplace=="Marketplace"){
+                                                navigate("/admin-dashboard/add-center/market-add-detail") 
+                                            }else{
+                                                navigate("/admin-dashboard/add-center/service-add-detail") 
+                                            }
+                                        }}
+                                        className='bg-primarygreen border-2 border-primarygreen py-2 px-4 text-white font-pop rounded-full hover:bg-transparent hover:text-primarygreen ease-in-out duration-300 w-max'
+                                    >
+                                        View Detail
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
         </div>
     )

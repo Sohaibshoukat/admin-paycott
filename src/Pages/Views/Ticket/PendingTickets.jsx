@@ -12,6 +12,7 @@ const PendingTickets = () => {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
+            "Assigned":"Inzamam Yousaf",
             "Offer": "Physical goods",
             "Status": "Pending",
             "Rciver": {
@@ -25,6 +26,7 @@ const PendingTickets = () => {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
+            "Assigned":"Inzamam Yousaf",
             "Offer": "Physical goods",
             "Status": "Pending",
             "Rciver": {
@@ -38,6 +40,7 @@ const PendingTickets = () => {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
+            "Assigned":"Inzamam Yousaf",
             "Offer": "Physical goods",
             "Status": "Pending",
             "Rciver": {
@@ -51,6 +54,7 @@ const PendingTickets = () => {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
+            "Assigned":"Inzamam Yousaf",
             "Offer": "Physical goods",
             "Status": "Pending",
             "Rciver": {
@@ -64,6 +68,7 @@ const PendingTickets = () => {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
+            "Assigned":"Inzamam Yousaf",
             "Offer": "Physical goods",
             "Status": "Pending",
             "Rciver": {
@@ -77,6 +82,7 @@ const PendingTickets = () => {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
+            "Assigned":"Inzamam Yousaf",
             "Offer": "Physical goods",
             "Status": "Pending",
             "Rciver": {
@@ -90,6 +96,7 @@ const PendingTickets = () => {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
+            "Assigned":"Inzamam Yousaf",
             "Offer": "Physical goods",
             "Status": "Pending",
             "Rciver": {
@@ -103,6 +110,7 @@ const PendingTickets = () => {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
+            "Assigned":"Inzamam Yousaf",
             "Offer": "Physical goods",
             "Status": "Pending",
             "Rciver": {
@@ -116,6 +124,7 @@ const PendingTickets = () => {
                 "img": "../../assets/Prop/avatar.png",
                 "Name": "Kristin Watson"
             },
+            "Assigned":"Inzamam Yousaf",
             "Offer": "Physical goods",
             "Status": "Pending",
             "Rciver": {
@@ -144,7 +153,8 @@ const PendingTickets = () => {
                 <table className='w-full overflow-x-scroll font-pop border-spacing-y-4 border-separate'>
                     <thead>
                         <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">ID</th>
-                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left w-[30%] font-medium text-gray-500 uppercase">Seller</th>
+                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Seller</th>
+                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Resolved by</th>
                         <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Offer</th>
                         <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Status</th>
                         <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Buyer</th>
@@ -158,13 +168,18 @@ const PendingTickets = () => {
                                         #{item.ID}
                                     </h2>
                                 </td>
-                                <td class="px-2 md:px-6 bg-white my-3 text-base md:text-lg font-semibold py-3 text-left w-max min-w-[30%]">
+                                <td class="px-2 md:px-6 bg-white my-3 text-base md:text-lg font-semibold py-3 text-left w-max">
                                     <div className="flex w-max gap-2 items-center">
                                         <img src={item?.Sender?.img} alt="" className='w-8 h-8 rounded-full' />
                                         <h2 className='font-semibold'>
                                             {item?.Sender?.Name}
                                         </h2>
                                     </div>
+                                </td>
+                                <td class="px-2 md:px-6 font-pop text-sm md:text-base bg-white my-3 py-3 text-left ">
+                                    <h2 className='font-semibold w-max'>
+                                        {item.Assigned}
+                                    </h2>
                                 </td>
                                 <td class="px-2 md:px-6 bg-white my-3 py-1 md:py-3 font-normal text-left ">
                                     <h2 className='w-max'>{item?.Offer}</h2>

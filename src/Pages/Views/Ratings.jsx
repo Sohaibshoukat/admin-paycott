@@ -2,6 +2,7 @@ import React from 'react'
 import RatingCard from '../../Components/Dashboard/RatingCard'
 import { Rating } from '@mui/material'
 import { MdEdit } from 'react-icons/md'
+import { FaSearch } from 'react-icons/fa'
 
 const Ratings = () => {
   return (
@@ -9,9 +10,19 @@ const Ratings = () => {
       <div className="flex gap-4">
         <div className="basis-[70%] py-10 px-6">
           <div className="flex flex-col gap-8">
-            <div className="flex flex-col font-pop gap-2">
-              <h3 className='text-2xl font-bold'>All Reviews</h3>
-              <p className='text-lightGrey'>6 Reviews</p>
+            <div className="flex flex-col lg:flex-row justify-between items-center">
+              <div className="flex flex-col font-pop gap-2">
+                <h3 className='text-2xl font-bold'>All Reviews</h3>
+                <p className='text-lightGrey'>6 Reviews</p>
+              </div>
+              <div className="flex gap-3 items-center bg-gray-300 rounded-full py-1 px-4">
+                <FaSearch className='text-gray-400 text-lg md:text-2xl' />
+                <input
+                  type="text"
+                  placeholder='Search...'
+                  className='bg-transparent text-sm md:text-lg border-none outline-none focus:outline-none focus:border-none active:outline-none '
+                />
+              </div>
             </div>
             <div className="flex flex-col gap-4">
               <RatingCard />
@@ -59,7 +70,7 @@ const Ratings = () => {
                 <div className="flex flex-col gap-2 font-pop">
                   <div className="flex justify-between">
                     <h5 className='text-lightGrey'>Rating</h5>
-                    <MdEdit className='text-primarygreen text-lg' />
+                    <MdEdit className='text-primarygreen cursor-pointer text-lg' />
                   </div>
                   <div className='ml-4'>
                     <div className="flex gap-2 items-center">
@@ -73,9 +84,9 @@ const Ratings = () => {
 
               <div className="border-2 border-light py-4 px-4 rounded-2xl">
                 <div className="flex flex-col gap-2 font-pop">
-                <div className="flex justify-between">
-                <h5 className='text-lightGrey'>FeedBack</h5>
-                    <MdEdit className='text-primarygreen text-lg' />
+                  <div className="flex justify-between">
+                    <h5 className='text-lightGrey'>FeedBack</h5>
+                    <MdEdit className='text-primarygreen cursor-pointer text-lg' />
                   </div>
                   <div className='ml-4'>
                     <p className=''>Fast, Good Communication, Brilliant Design!</p>

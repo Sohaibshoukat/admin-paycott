@@ -1,6 +1,5 @@
 import React from 'react'
 import { BarChart } from '@mui/x-charts/BarChart';
-import CircularProgress from '@mui/joy/CircularProgress';
 import { Gauge, gaugeClasses } from '@mui/x-charts/Gauge';
 
 
@@ -92,12 +91,6 @@ const RevenueChart = () => {
                         </select>
                         <div className="flex flex-col gap-4 my-4">
                             <div className="flex text-xl flex-col gap-2 font-pop items-center justify-center relative">
-                                {/* <CircularProgress size="lg" determinate value={78}>
-                                    <div className="p-24">
-                                        <h3 className="text-2xl font-bold text-black ">78%</h3>
-                                        <p className="text-lightGrey font-medium">Salary</p>
-                                    </div>
-                                </CircularProgress> */}
                                 <Gauge
                                     value={78}
                                     startAngle={-110}
@@ -118,15 +111,6 @@ const RevenueChart = () => {
                                 />
                                 <h2 className="font-pop text-lg text-lightGrey font-semibold">62% Salary Volume</h2>
                             </div>
-
-                            {/* <GaugeChart
-                            id="gauge-chart3"
-                            nrOfLevels={20}
-                            colors={["purple", "white", "white"]}
-                            arcWidth={0.3}
-                            percent={0.8}
-                            textColor={'purple'}
-                        /> */}
 
                         </div>
                     </div>

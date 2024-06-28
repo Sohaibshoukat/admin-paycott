@@ -12,6 +12,14 @@ const ProductAdds = () => {
             <div className="flex flex-col gap-4 lg:flex-row justify-between font-pop lg:items-center">
                 <h3 className='text-gray-400 text-sm md:text-lg font-medium'>Total 12 Offers</h3>
                 <div className="flex gap-2 md:gap-6 items-center">
+                    <div className="flex gap-3 items-center bg-gray-300 rounded-full py-1 px-4">
+                        <FaSearch className='text-gray-400 text-lg md:text-2xl' />
+                        <input
+                            type="text"
+                            placeholder='Search...'
+                            className='bg-transparent text-sm md:text-lg border-none outline-none focus:outline-none focus:border-none active:outline-none '
+                        />
+                    </div>
                     <select
                         name=""
                         id=""

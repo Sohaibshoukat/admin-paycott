@@ -5,6 +5,7 @@ import Alert from './Components/Alert'
 import Redirect from './Pages/Redirect'
 import Login from './Pages/Login'
 import AdminDashboard from './Pages/AdminDashboard'
+import CreatePassword from './Pages/CreatePassword'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Redirect />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/createpassword/:id" element={<CreatePassword />} />
               <Route path="/admin-dashboard/*" element={<AdminDashboard />} /> {/* Using * for sublinks */}
             </Routes>
           </div>

@@ -9,6 +9,7 @@ const User = () => {
 
     const Data = [
         {
+            "ID":"#100",
             "Status": "Active",
             "Email": "AlbertWatson.@gmail.com",
             "User": {
@@ -19,6 +20,7 @@ const User = () => {
             "Date": "10 Dec"
         },
         {
+            "ID":"#100",
             "Status": "In-Active",
             "Email": "AlbertWatson.@gmail.com",
             "User": {
@@ -29,6 +31,7 @@ const User = () => {
             "Date": "10 Dec"
         },
         {
+            "ID":"#100",
             "Status": "Banned",
             "Email": "AlbertWatson.@gmail.com",
             "User": {
@@ -39,6 +42,7 @@ const User = () => {
             "Date": "10 Dec"
         },
         {
+            "ID":"#100",
             "Status": "Active",
             "Email": "AlbertWatson.@gmail.com",
             "User": {
@@ -49,6 +53,7 @@ const User = () => {
             "Date": "10 Dec"
         },
         {
+            "ID":"#100",
             "Status": "In-Active",
             "Email": "AlbertWatson.@gmail.com",
             "User": {
@@ -59,6 +64,7 @@ const User = () => {
             "Date": "10 Dec"
         },
         {
+            "ID":"#100",
             "Status": "Banned",
             "Email": "AlbertWatson.@gmail.com",
             "User": {
@@ -69,6 +75,7 @@ const User = () => {
             "Date": "10 Dec"
         },
         {
+            "ID":"#100",
             "Status": "Active",
             "Email": "AlbertWatson.@gmail.com",
             "User": {
@@ -79,6 +86,7 @@ const User = () => {
             "Date": "10 Dec"
         },
         {
+            "ID":"#100",
             "Status": "In-Active",
             "Email": "AlbertWatson.@gmail.com",
             "User": {
@@ -89,6 +97,7 @@ const User = () => {
             "Date": "10 Dec"
         },
         {
+            "ID":"#100",
             "Status": "Banned",
             "Email": "AlbertWatson.@gmail.com",
             "User": {
@@ -134,6 +143,7 @@ const User = () => {
             <div className='bg-transparent overflow-x-auto font-pop w-full my-2 md:my-6'>
                 <table className='w-full border-spacing-y-4 border-separate'>
                     <thead>
+                        <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">ID</th>
                         <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">Status</th>
                         <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left w-[30%] font-medium text-gray-500 uppercase">Email</th>
                         <th scope="col" class="px-2 md:px-6 py-1 md:py-3 text-left font-medium text-gray-500 uppercase">User</th>
@@ -143,8 +153,11 @@ const User = () => {
                     </thead>
                     <tbody>
                         {Data?.map((item, index) => (
-                            <tr key={index} onClick={()=>{navigate("/admin-dashboard/user/transaction")}} className='cursor-pointer'>
-                                <td class="px-2 md:px-6 rounded-l-2xl text-sm md:text-base bg-white my-3 py-3 text-left ">
+                            <tr key={index} onClick={() => { navigate("/admin-dashboard/user/transaction") }} className='cursor-pointer'>
+                                <td class="px-2 md:px-6 bg-white my-3 rounded-l-2xl text-base md:text-lg font-semibold py-3 text-left w-max">
+                                    <h2 className='w-max'>{item?.ID}</h2>
+                                </td>
+                                <td class="px-2 md:px-6 text-sm md:text-base bg-white my-3 py-3 text-left ">
                                     <div
                                         className={`
                                             py-2 px-4 rounded-lg border-2 w-max font-medium
@@ -180,8 +193,8 @@ const User = () => {
                                 </td>
                                 <td class="px-2 md:px-6 bg-white my-3 py-1 md:py-3 text-left rounded-r-2xl">
                                     <div className="flex gap-2 items-center">
-                                        <MdEdit className='text-primarygreen text-lg'/>
-                                        <MdDelete className='text-red-500 text-lg'/>
+                                        <MdEdit className='text-primarygreen text-lg' />
+                                        <MdDelete className='text-red-500 text-lg' />
                                     </div>
                                 </td>
                             </tr>

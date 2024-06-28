@@ -18,7 +18,7 @@ const HelpCenter = () => {
             />
           </div>
           <div className="lg:flex hidden flex-col gap-2">
-            <div className="bg-white border-2 border-[#E9E9E9] py-2 px-4 rounded-2xl">
+            <div className="bg-white border-2 cursor-pointer border-[#E9E9E9] py-2 px-4 rounded-2xl">
               <div className="flex flex-row justify-between items-center">
                 <div className="flex flex-row gap-2">
                   <img src="../../assets/Prop/avatar.png" alt="" className='rounded-full w-12 h-12' />
@@ -32,7 +32,7 @@ const HelpCenter = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-white border-2 border-[#E9E9E9] py-2 px-4 rounded-2xl">
+            <div className="bg-white border-2 cursor-pointer border-[#E9E9E9] py-2 px-4 rounded-2xl">
               <div className="flex flex-row justify-between items-center">
                 <div className="flex flex-row gap-2">
                   <img src="../../assets/Prop/avatar.png" alt="" className='rounded-full w-12 h-12' />
@@ -46,7 +46,7 @@ const HelpCenter = () => {
                 </div>
               </div>
             </div>
-            <div className="bg-white border-2 border-[#E9E9E9] py-2 px-4 rounded-2xl">
+            <div className="bg-white border-2 cursor-pointer border-[#E9E9E9] py-2 px-4 rounded-2xl">
               <div className="flex flex-row justify-between items-center">
                 <div className="flex flex-row gap-2">
                   <img src="../../assets/Prop/avatar.png" alt="" className='rounded-full w-12 h-12' />
@@ -63,7 +63,7 @@ const HelpCenter = () => {
           </div>
           <div className="flex lg:hidden flex-col gap-2">
             <div
-              className="bg-white border-2 border-[#E9E9E9] py-2 px-4 rounded-2xl"
+              className="bg-white cursor-pointer border-2 border-[#E9E9E9] py-2 px-4 rounded-2xl"
               onClick={() => { navigate("/admin-dashboard/help-center/chat-detail") }}
             >
               <div className="flex flex-row justify-between items-center">
@@ -80,7 +80,7 @@ const HelpCenter = () => {
               </div>
             </div>
             <div
-              className="bg-white border-2 border-[#E9E9E9] py-2 px-4 rounded-2xl"
+              className="bg-white cursor-pointer border-2 border-[#E9E9E9] py-2 px-4 rounded-2xl"
               onClick={() => { navigate("/admin-dashboard/user/chat-detail") }}
             >
               <div className="flex flex-row justify-between items-center">
@@ -97,7 +97,7 @@ const HelpCenter = () => {
               </div>
             </div>
             <div
-              className="bg-white border-2 border-[#E9E9E9] py-2 px-4 rounded-2xl"
+              className="bg-white cursor-pointer border-2 border-[#E9E9E9] py-2 px-4 rounded-2xl"
               onClick={() => { navigate("/admin-dashboard/user/chat-detail") }}
             >
               <div className="flex flex-row justify-between items-center">
@@ -148,14 +148,14 @@ const HelpCenter = () => {
             </div>
             <div className="flex flex-row font-pop justify-between items-center bg-[#ffffff] rounded-3xl py-2 px-4">
               <div className="flex w-[100%] flex-row items-center gap-2">
-                <img src="../../assets/Prop/docattach.png" alt="" className='w-8 h-8' />
+                <img src="../../assets/Prop/docattach.png" alt="" className='w-8 cursor-pointer h-8' />
                 <input
                   type="text"
                   placeholder='Message...'
                   className='text-lg w-[100%] font-normal border-transparent outline-none focus:outline-none focus:border-transparent active:border-transparent active:outline-none bg-transparent'
                 />
               </div>
-              <img src="../../assets/Prop/messagesend.png" alt="" className='w-8 h-8' />
+              <img src="../../assets/Prop/messagesend.png" alt="" className='w-8 cursor-pointer h-8' />
             </div>
           </div>
         </div>

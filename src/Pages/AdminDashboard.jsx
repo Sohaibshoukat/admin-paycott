@@ -26,6 +26,12 @@ import Logs from './Views/Logs';
 import MainUser from './Views/AdminUsers/MainUser';
 import AdvertisingCenter from './Views/AdvertisingCenter.jsx/AdvertisingCenter';
 import MainBusiness from './Views/BusinessCenter/MainBusiness';
+import { BaseURL } from '../assets/Data/BaseURL';
+import MainProfile from './Views/Profile/MainProfile';
+import Setting from './Views/BusinessCenter/Setting';
+import AdminSetting from './Views/Profile/AdminSetting/AdminSetting';
+import LogDetail from './Views/LogDetail';
+import TransactionDetail from './Views/TransactionDetail';
 
 const AdminDashboard = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(true);
@@ -34,20 +40,35 @@ const AdminDashboard = () => {
     const location = useLocation()
     const navigate = useNavigate()
 
+    const [Name, setName] = useState('')
+    const [ProfileImage, setProfileImage] = useState('')
+
     const AletContext = useContext(AlertContext);
     const { showAlert } = AletContext;
 
-    const [price, setprice] = useState('')
-    const [type, settype] = useState(null)
-    const [editid, seteditid] = useState(null)
-    const [category_name, setcategory_name] = useState('')
-    const [categories, setCategories] = useState([]);
+    const fetchAdminData = async () => {
+        try {
+            const response = await fetch(`${BaseURL}/adminauth/getAdminself`, {
+                headers: {
+                    AdminODSToken: sessionStorage.getItem('token')
+                }
+            });
+            const data = await response.json()
+            setName(data.Name)
+            setProfileImage(data.ProfilePhoto)
+        } catch (error) {
+            console.error('Error fetching roles:', error);
+            showAlert('Error fetching roles', 'danger');
+        }
+    };
+
+    useEffect(() => {
+        fetchAdminData()
+    }, [])
 
 
     const handleLogout = () => {
-        // sessionStorage.removeItem("token");
-        // sessionStorage.removeItem("role");
-        // sessionStorage.removeItem("adminID")
+        sessionStorage.removeItem("token");
         navigate('/login');
     };
 
@@ -57,12 +78,11 @@ const AdminDashboard = () => {
 
 
     useEffect(() => {
-        // if (sessionStorage.getItem('token') && sessionStorage.getItem('adminID') && sessionStorage.getItem('role')=='Admin') {
-        //     navigate('/admin-dashboard')
-        // } else {
-        //     navigate('/login')
-        // }
-
+        if (sessionStorage.getItem('token')) {
+            navigate('/admin-dashboard')
+        } else {
+            navigate('/login')
+        }
     }, [])
 
 
@@ -70,14 +90,14 @@ const AdminDashboard = () => {
 
     return (
         <>
-            <div className='flex flex-row min-h-[100vh] max-h-[100vh] overflow-hidden bg-light'>
+            <div className='flex flex-row min-h-[100vh] max-h-[100vh] overflow-hidden bg-[#f3f3f3]'>
                 <div
-                    className={`xl:basis-[15%] border-r-2 border-light z-50 absolute xl:relative w-[80%] md:w-[55%] h-[100%] ${isMenuOpen && 'hidden'} xl:block xl:w-auto bg-white`}
+                    className={`xl:basis-[15%] xl:w-[15%] border-r-2 border-light z-50 absolute xl:relative w-[80%] md:w-[55%] h-[100%] ${isMenuOpen && 'hidden'} xl:block xl:w-auto bg-white`}
                     style={{ overflow: "unset" }}
                 >
                     <Nav isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} toggleMenu={toggleMenu} />
                 </div>
-                <div className="basis-[100%] max-h-[100vh] xl:basis-[85%] w-[100%] relative">
+                <div className="basis-[100%] max-h-[100vh] xl:basis-[85%] xl:w-[85%] w-[100%] relative">
                     <div className='flex flex-row items-center justify-between gap-0 md:gap-20 h-auto shadow-xl py-2 md:py-4 bg-white px-4 md:px-10 '>
                         <button
                             type="button"
@@ -96,14 +116,14 @@ const AdminDashboard = () => {
                                 <IoNotificationsOutline />
                             </div>
                             <div className='flex flex-row gap-2 items-center cursor-pointer relative' onClick={() => { setProfile(!Profile) }}>
-                                <img src="../assets/Prop/avatar.png" alt="" className='rounded-full w-8 md:w-12 h-8 md:h-12' />
-                                <h2 className='font-pop text-base md:text-lg font-semibold'>Liam Ridley</h2>
+                                <img src={ProfileImage} alt="" className='rounded-full w-8 md:w-12 h-8 md:h-12' />
+                                <h2 className='font-pop text-base md:text-lg font-semibold'>{Name}</h2>
                                 <FaChevronDown className='text-lg' />
-                                {Profile && <div className="flex rounded-xl z-[999999999] right-0 w-[100%] flex-col gap-2 bg-white absolute bottom-[-250%] shadow-2xl  font-pop text-lg font-medium py-2 px-4">
-                                    <Link to={"/admin-dashboard/profile/"}>
+                                {Profile && <div className="flex rounded-xl z-[999999999] right-0 w-[100%] flex-col gap-2 bg-white absolute top-[100%] shadow-2xl  font-pop text-lg font-medium py-2 px-4">
+                                    <Link to={"/admin-dashboard/profile"}>
                                         <h3>Profile</h3>
                                     </Link>
-                                    <Link to={"/admin-dashboard/profile/setting"}>
+                                    <Link to={"/admin-dashboard/profilesetting"}>
                                         <h3>Setting</h3>
                                     </Link>
                                     <Link to={"/"}>
@@ -120,6 +140,14 @@ const AdminDashboard = () => {
                             <Route
                                 path="/"
                                 element={<Home />}>
+                            </Route>
+                            <Route
+                                path="/profile"
+                                element={<MainProfile />}>
+                            </Route>
+                            <Route
+                                path="/profilesetting"
+                                element={<AdminSetting />}>
                             </Route>
                             <Route
                                 path="/verification/*"
@@ -140,6 +168,10 @@ const AdminDashboard = () => {
                             <Route
                                 path="/transactions"
                                 element={<Transaction />}>
+                            </Route>
+                            <Route
+                                path="/transaction-detail"
+                                element={<TransactionDetail />}>
                             </Route>
                             <Route
                                 path="/users"
@@ -172,6 +204,10 @@ const AdminDashboard = () => {
                             <Route
                                 path="/logs"
                                 element={<Logs />}>
+                            </Route>
+                            <Route
+                                path="/transaction-log-detail"
+                                element={<LogDetail />}>
                             </Route>
                             <Route
                                 path="/payment-setting"

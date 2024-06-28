@@ -1,91 +1,95 @@
 import React from 'react'
 import { FaDownload } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
 
 const Logs = () => {
+
+  const navigate = useNavigate()
+
   const Data = [
     {
-      User:"Kristan Watson",
-      Date:"10 Dec 2023",
-      Email:"kristanwatson@gmail.com",
-      Role:"Buyer",
-      LogType:"Order"
+      User: "Kristan Watson",
+      Date: "10 Dec 2023",
+      Email: "kristanwatson@gmail.com",
+      Role: "Buyer",
+      LogType: "Transaction"
     },
     {
-      User:"Kristan Watson",
-      Date:"10 Dec 2023",
-      Email:"kristanwatson@gmail.com",
-      Role:"Buyer",
-      LogType:"Login"
+      User: "Kristan Watson",
+      Date: "10 Dec 2023",
+      Email: "kristanwatson@gmail.com",
+      Role: "Buyer",
+      LogType: "Login"
     },
     {
-      User:"Kristan Watson",
-      Date:"10 Dec 2023",
-      Email:"kristanwatson@gmail.com",
-      Role:"Buyer",
-      LogType:"Withdraw"
+      User: "Kristan Watson",
+      Date: "10 Dec 2023",
+      Email: "kristanwatson@gmail.com",
+      Role: "Buyer",
+      LogType: "Withdraw"
     },
     {
-      User:"Kristan Watson",
-      Date:"10 Dec 2023",
-      Email:"kristanwatson@gmail.com",
-      Role:"Buyer",
-      LogType:"Adds"
+      User: "Kristan Watson",
+      Date: "10 Dec 2023",
+      Email: "kristanwatson@gmail.com",
+      Role: "Buyer",
+      LogType: "Adds"
     },
     {
-      User:"Kristan Watson",
-      Date:"10 Dec 2023",
-      Email:"kristanwatson@gmail.com",
-      Role:"Buyer",
-      LogType:"Order"
+      User: "Kristan Watson",
+      Date: "10 Dec 2023",
+      Email: "kristanwatson@gmail.com",
+      Role: "Buyer",
+      LogType: "Order"
     },
     {
-      User:"Kristan Watson",
-      Date:"10 Dec 2023",
-      Email:"kristanwatson@gmail.com",
-      Role:"Buyer",
-      LogType:"Login"
+      User: "Kristan Watson",
+      Date: "10 Dec 2023",
+      Email: "kristanwatson@gmail.com",
+      Role: "Buyer",
+      LogType: "Login"
     },
     {
-      User:"Kristan Watson",
-      Date:"10 Dec 2023",
-      Email:"kristanwatson@gmail.com",
-      Role:"Buyer",
-      LogType:"Withdraw"
+      User: "Kristan Watson",
+      Date: "10 Dec 2023",
+      Email: "kristanwatson@gmail.com",
+      Role: "Buyer",
+      LogType: "Withdraw"
     },
     {
-      User:"Kristan Watson",
-      Date:"10 Dec 2023",
-      Email:"kristanwatson@gmail.com",
-      Role:"Buyer",
-      LogType:"Adds"
+      User: "Kristan Watson",
+      Date: "10 Dec 2023",
+      Email: "kristanwatson@gmail.com",
+      Role: "Buyer",
+      LogType: "Adds"
     },
     {
-      User:"Kristan Watson",
-      Date:"10 Dec 2023",
-      Email:"kristanwatson@gmail.com",
-      Role:"Buyer",
-      LogType:"Order"
+      User: "Kristan Watson",
+      Date: "10 Dec 2023",
+      Email: "kristanwatson@gmail.com",
+      Role: "Buyer",
+      LogType: "Order"
     },
     {
-      User:"Kristan Watson",
-      Date:"10 Dec 2023",
-      Email:"kristanwatson@gmail.com",
-      Role:"Buyer",
-      LogType:"Login"
+      User: "Kristan Watson",
+      Date: "10 Dec 2023",
+      Email: "kristanwatson@gmail.com",
+      Role: "Buyer",
+      LogType: "Login"
     },
     {
-      User:"Kristan Watson",
-      Date:"10 Dec 2023",
-      Email:"kristanwatson@gmail.com",
-      Role:"Buyer",
-      LogType:"Withdraw"
+      User: "Kristan Watson",
+      Date: "10 Dec 2023",
+      Email: "kristanwatson@gmail.com",
+      Role: "Buyer",
+      LogType: "Withdraw"
     },
     {
-      User:"Kristan Watson",
-      Date:"10 Dec 2023",
-      Email:"kristanwatson@gmail.com",
-      Role:"Buyer",
-      LogType:"Adds"
+      User: "Kristan Watson",
+      Date: "10 Dec 2023",
+      Email: "kristanwatson@gmail.com",
+      Role: "Buyer",
+      LogType: "Adds"
     },
   ]
 
@@ -108,15 +112,15 @@ const Logs = () => {
             </select>
           </div>
           <div className="flex gap-2 items-center">
-              <input 
-                type="date"
-                className='bg-transparent py-1 px-2 rounded-xl border-[1px] border-lightGrey'
-              />
-              <h2 className='font-bold'>-</h2>
-              <input 
-                type="date"
-                className='bg-transparent py-1 px-2 rounded-xl border-[1px] border-lightGrey'
-              />
+            <input
+              type="date"
+              className='bg-transparent py-1 px-2 rounded-xl border-[1px] border-lightGrey'
+            />
+            <h2 className='font-bold'>-</h2>
+            <input
+              type="date"
+              className='bg-transparent py-1 px-2 rounded-xl border-[1px] border-lightGrey'
+            />
           </div>
         </div>
         <div className="flex gap-2 font-pop text-lightGrey items-center">
@@ -135,16 +139,16 @@ const Logs = () => {
           </thead>
           <tbody>
             {Data?.map((item, index) => (
-              <tr key={index}>
+              <tr key={index} onClick={() => { navigate("/admin-dashboard/transaction-log-detail") }} className='cursor-pointer'>
                 <td class="px-2 md:px-6 rounded-l-2xl font-pop text-sm md:text-base bg-white my-3 py-3 text-left ">
                   <h2 className='font-normal w-max text-lightGrey'>
                     {item.Date}
                   </h2>
                 </td>
                 <td class="px-2 md:px-6 bg-white my-3 text-base md:text-lg font-semibold py-3 text-left w-max min-w-[30%]">
-                    <h2 className='font-semibold w-max'>
-                      {item?.User}
-                    </h2>
+                  <h2 className='font-semibold w-max'>
+                    {item?.User}
+                  </h2>
                 </td>
                 <td class="px-2 md:px-6 bg-white my-3 py-1 md:py-3 font-normal text-left ">
                   <h2 className='w-max'>{item?.Email}</h2>

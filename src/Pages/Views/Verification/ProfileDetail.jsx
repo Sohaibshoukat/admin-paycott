@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { IoCloseCircleOutline } from 'react-icons/io5'
+import Select from 'react-select'
+
 
 const ProfileDetail = () => {
+    const [Status, setStatus] = useState('')
+    const [Documents, setDocuments] = useState([
+        { value: "Address", label: "Adress Document" },
+        { value: "ID", label: "ID Document" },
+        { value: "Bill", label: "Home Bill" },
+        { value: "Passport", label: "Passport" },
+        { value: "Driving_License", label: "Driving License" },
+    ])
+    const [SelectedDoc, setSelectedDoc] = useState([])
     return (
         <div className='flex flex-col gap-4'>
 
@@ -108,6 +119,8 @@ const ProfileDetail = () => {
                             <select
                                 name=""
                                 id=""
+                                value={Status}
+                                onChange={(e) => { setStatus(e.target.value) }}
                                 className="border-none outline-none w-full px-4 font-pop"
                             >
                                 <option value="">Select Action</option>
@@ -120,18 +133,45 @@ const ProfileDetail = () => {
                 </div>
             </div>
 
+            {Status == "Declined" && <div className="flex flex-col gap-2 font-pop">
+                <h3 className='text-lg font-medium text-lightGrey'>Decline Reason</h3>
+                <div className="bg-white py-6 px-4 rounded-xl">
+                    <div className="relative border-2 border-light rounded-xl py-4 px-4">
+                        <div className="absolute -top-3 px-2 left-6 bg-white">Reason</div>
+                        <div className="flex font-pop text-black flex-row gap-2 items-center">
+                            <input
+                                type="text"
+                                placeholder='Write a Reason for Decline..?'
+                                className="border-none outline-none w-full px-4 font-pop"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>}
 
             <div className="flex flex-col gap-2 font-pop">
                 <h3 className='text-lg font-medium text-lightGrey'>Request Document</h3>
                 <div className="bg-white py-6 px-4 rounded-xl">
                     <div className="relative border-2 border-light rounded-xl py-4 px-4">
                         <div className="absolute -top-3 px-2 left-6 bg-white">Missing Documents</div>
-                        <div className="flex font-pop text-black flex-row gap-2 items-center">
-                            <input
-                                type="text"
-                                placeholder='Write documents name which are missing...?'
-                                className="border-none outline-none w-full px-4 font-pop"
-                            />
+                        <div className="flex gap-4">
+                            <div className="flex font-pop basis-[60%] text-black flex-row gap-2 items-center">
+                                <input
+                                    type="text"
+                                    placeholder='Write documents name which are missing...?'
+                                    className="border-none outline-none w-full px-4 font-pop"
+                                />
+                            </div>
+                            <div className="border-2 border-lightGrey rounded-xl basis-[40%]">
+                                <Select
+                                    options={Documents}
+                                    value={SelectedDoc}
+                                    onChange={setSelectedDoc}
+                                    isMulti
+                                    className="basic-multi-select  border-none outline-none w-full px-4 font-pop"
+                                    classNamePrefix="select Missing Document"
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -24,3 +24,8 @@ text tspan:last-child{
 .css-b9rdri-MuiGauge-referenceArc{
   fill:#696CFF !important;
 }
+
+
+.MuiChartsLegend-column{
+  display: none !important;
+}

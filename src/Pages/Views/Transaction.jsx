@@ -1,8 +1,11 @@
 import React from 'react'
 import { FaSearch } from 'react-icons/fa'
 import Pagination from '@mui/material/Pagination';
+import { useNavigate } from 'react-router-dom';
 
 const Transaction = () => {
+
+    const navigate= useNavigate()
 
     const Data = [
         {
@@ -186,7 +189,13 @@ const Transaction = () => {
                     </thead>
                     <tbody>
                         {Data?.map((item, index) => (
-                            <tr key={index}>
+                            <tr 
+                                key={index}
+                                className='cursor-pointer'
+                                onClick={()=>{
+                                    navigate("/admin-dashboard/transaction-detail")
+                                }}
+                            >
                                 <td class="px-2 md:px-6 rounded-l-2xl font-pop text-sm md:text-base bg-white my-3 py-3 text-left ">
                                     <h2 className='font-semibold'>
                                         #{item.ID}
